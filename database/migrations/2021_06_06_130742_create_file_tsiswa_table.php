@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKodeRegistrasiTable extends Migration
+class CreateFileTsiswaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateKodeRegistrasiTable extends Migration
      */
     public function up()
     {
-        Schema::create('kode_registrasi', function (Blueprint $table) {
-            $table->bigIncrements('kode_regist', 10);
-            $table->string('hak_akses', 10);
+        Schema::create('file_tsiswa', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('file_tugas', 20);
+            $table->text('keterangan');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateKodeRegistrasiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kode_registrasi');
+        Schema::dropIfExists('file_tsiswa');
     }
 }

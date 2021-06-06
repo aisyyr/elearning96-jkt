@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePelajaranTable extends Migration
+class CreateFileMtguruTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreatePelajaranTable extends Migration
      */
     public function up()
     {
-        Schema::create('pelajaran', function (Blueprint $table) {
+        Schema::create('file_mtguru', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_pelajaran', 50);
+            $table->string('file_guru', 20);
+            $table->text('keterangan');
         });
     }
 
@@ -26,6 +27,6 @@ class CreatePelajaranTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pelajaran');
+        Schema::dropIfExists('file_mtguru');
     }
 }
