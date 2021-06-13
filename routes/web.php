@@ -15,8 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Home', 'HomeContoller@index');
+Route::get('/HalamanUtama', 'HomeeController@index');
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+// Route::get('/loginadmin', 'AuthController@login');
+// Route::post('/postlogin-admin', 'AuthController@postlogin1');
+// Route::get('/DashboardAdmin', 'AdminController@index');
 
 
 
