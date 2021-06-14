@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Dashboard Admin</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
         <ul class="navbar-nav bg-gradient-primary2 sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="AdminDashboard.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <span>SMPN 96 JAKARTA</span>
             </a>
 
@@ -50,6 +50,7 @@
                     <span>Dashboard</span></a>
             </li>
 
+            @if(auth()->user()->roles == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-home"></i>
@@ -73,6 +74,43 @@
                     <i class="fas fa-fw fa-book-open"></i>
                     <span>Pelajaran</span></a>
             </li>
+            @endif
+
+
+            @if(auth()->user()->roles == 'Guru')
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Homesite</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Virtual Classroom</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-book-open"></i>
+                    <span>Nilai</span></a>
+            </li>
+            @endif
+
+
+            @if(auth()->user()->roles == 'Siswa')
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Homesite</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Virtual Classroom</span></a>
+            </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -141,9 +179,25 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+                                   @if(auth()->user()->roles == 'Guru')
+                                   <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Pengaturan
+                                   </a>
+                                   @endif
+
+                                   @if(auth()->user()->roles == 'Siswa')
+                                   <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Pengaturan
+                                   </a>
+                                   @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         {{ __('Logout') }}
                                     </a>
 
@@ -151,6 +205,7 @@
                                         @csrf
                                     </form>
                             </div>
+
                         </li>
                         @endguest
                     </ul>

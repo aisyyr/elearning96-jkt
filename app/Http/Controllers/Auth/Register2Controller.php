@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
+use App\Guru;
+use App\Siswa;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class Register2Controller extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::MIDREGIST;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -47,14 +48,17 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'roles' => ['required', 'string'],
+            'nip_guru' => ['required', 'string', 'max:16'],
+            'kode_regist' => ['required', 'string', 'max:10'],
         ]);
+        // return Validator::make($data, [
+        //     'nisn_siswa' => ['required', 'string', 'max:10'],
+        //     'kode_regist' => ['required', 'string', 'max:10'],
+        // ]);
     }
 
     /**
@@ -65,11 +69,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'roles' => $data['roles'],
+        return Guru::create([
+            'nip_guru' => $data['nip_guru'],
+            'kode_regist' => $data['kode_regist'],
         ]);
+        // return Siswa::create([
+        //     'nisn_siswa' => $data['nisn_siswa'],
+        //     'kode_regist' => $data['kode_regist'],
+        // ]);
     }
+
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'nisn_siswa' => ['required', 'string', 'max:10'],
+    //         'kode_regist' => ['required', 'string', 'max:10'],
+    //     ]);
+    // }
+
+    // /**
+    //  * Create a new user instance after a valid registration.
+    //  *
+    //  * @param  array  $data
+    //  * @return \App\User
+    //  */
+    // protected function create(array $data)
+    // {
+    //     return Siswa::create([
+    //         'nisn_siswa' => $data['nisn_siswa'],
+    //         'kode_regist' => $data['kode_regist'],
+    //     ]);
+    // }
 }

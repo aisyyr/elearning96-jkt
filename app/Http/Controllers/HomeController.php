@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboardadmin');
+        return view('dashboard1');
+    }
+
+    public function regist2()
+    {
+        return view('midregister');
     }
 }

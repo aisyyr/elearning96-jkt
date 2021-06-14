@@ -79,9 +79,9 @@
 
                         <div class="form-group row mb-0">
                             <div class="p-t-30">
-                                <button type="submit" class="btn btn--radius-2 btn--blue">
-                                    {{ __('Register') }}
-                                </button>
+                                <a href="/register2" type="submit" class="btn btn--radius-2 btn--blue">
+                                    {{ __('Next') }}
+                                </a>
                             </div>
                         </div>
                     </form>

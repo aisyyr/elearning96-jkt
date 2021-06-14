@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!---->
 					<div class="header-logo">
 						<div class="logo">
-						<a href="#Home"><img src="{{asset('admin/images/lo1.png')}}" alt="" ></a>
+						<a href="#Home"><img src="{{asset('admin/images/lo1.png')}}" alt="" width="100%" height="100%"></a>
 						</div>
 						<div class="top-nav">
 							<span class="icon"><img src="{{asset('admin/images/menu.png')}}" alt=""> </span>
@@ -52,6 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li ><a href="#Home">Home</a> </li>
 								<li ><a href="#about" >About  </a> </li>
 								<li><a href="#kontak"  >Contact</a></li>
+								<li><a href="{{ route('login') }}" target="_blank" id="login"><span>Login</span></a></li>
+								<li><a href="{{ route('register') }}" target="_blank" id="register"><span>Register</span></a></li>
 							</ul>
 							<!--script-->
 						<script>
@@ -62,6 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>				
 				</div>
 				<div class="clearfix"> </div>
+
 					</div>
 			<!---->
 			<div class="top-menu">					
@@ -91,13 +94,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h1>E-Learning SMP Negeri 96 Jakarta</h1>
 				<div class="bann-main">
 					<div class="col-md-4 bann-grid">
-						<img src="{{asset('admin/images/i1.png')}}" width="100px" height="100px" alt="">
+						<img src="{{asset('admin/images/i1.png')}}" width="100%" height="100%" alt="">
 					</div>
 					<div class="col-md-4 bann-grid">
-							<img class="img-circle " src="{{asset('admin/img/SMPN.jpg')}}" width="100px" height="100px" alt="">
+							<img class="img-circle " src="{{asset('admin/img/SMPN.jpg')}}" width="100%" height="150%" alt="">
 					</div>
 					<div class="col-md-4 bann-grid">
-							<img class="img-circle " src="{{asset('admin/images/i3.jpg')}}" width="90px" height="110px" alt="">
+							<img class="img-circle " src="{{asset('admin/images/i3.jpg')}}" width="90%" height="110%" alt="">
 				</div>
 				<div class="clearfix"> </div>
 			</div>
