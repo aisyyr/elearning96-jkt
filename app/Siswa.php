@@ -2,41 +2,46 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\Guru as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class Siswa extends Authenticatable
+class Siswa extends Model
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'nisn_siswa', 'kode_regist', 'kelass',
-    ];
-    
+    protected $table = 'siswa';
     public $timestamps = false;
 
+    protected $fillable = [
+        'nisn_siswa', 
+        'id_kelas',
+        'id_regist',
+    ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    // protected $hidden = [
-    //     'password', 'remember_token',
-    // ];
+    //FK id_kelas
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
+    //FK id_regist
+    public function kode_registrasi()
+    {
+        return $this->belongsTo(Kode_Registrasi::class, 'id_regist');
+    }
+
+    //Relasi fk dari table user
+    public function user()
+    {
+        return $this->hasMany(User::class, 'nisn_siswa', 'nisn_siswa');
+    }
+
+    //Relasi fk dari table File_TSiswa
+    public function file_tsiswa()
+    {
+        return $this->hasMany(File_TSiswa::class, 'nisn_siswa', 'nisn_siswa');
+    }
+
+    //Relasi fk dari table Nilai_Tugas
+    public function nilai_tugas()
+    {
+        return $this->hasMany(Nilai_Tugas::class, 'nisn_siswa', 'nisn_siswa');
+    }
 }

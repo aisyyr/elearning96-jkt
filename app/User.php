@@ -16,7 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'roles',
+        'name', 
+        'email', 
+        'password', 
+        'roles', 
+        'nip_guru', 
+        'nisn_siswa',
     ];
     
     public $timestamps = false;
@@ -39,4 +44,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //FK nip_guru
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'nip_guru');
+    }
+
+    //FK nisn_siswa
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'nisn_siswa');
+    }
+
+    //Relasi fk dari table file_informasi
+    public function file_informasi()
+    {
+        return $this->hasMany(File_Informasi::class, 'id_user_admin', 'id');
+    }
 }

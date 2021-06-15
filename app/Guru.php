@@ -2,58 +2,41 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\Guru as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class Guru extends Authenticatable
+class Guru extends Model
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'nip_guru', 'id_regist', 'id_pelajaran'
-    ];
-    
+    protected $table = 'guru';
     public $timestamps = false;
 
-    public function kode_regist() //digunakan di controller
+    protected $fillable = [
+        'nip_guru', 
+        'id_pelajaran',
+        'id_regist',
+    ];
+
+    //FK id_pelajaran
+    public function pelajaran()
     {
-        // return $this belongsTo //nama model koderegist , id_regist;
-        //model di kode regist bikin relasi kayak di hasMany
+        return $this->belongsTo(Pelajaran::class, 'id_pelajaran');
     }
 
-    //id pelajaran : belongToMany -> karena relasi nya many to many
-    //di model pelajaran bikin relasi juga yang hasMany
+    //FK id_regist
+    public function kode_registrasi()
+    {
+        return $this->belongsTo(Kode_Registrasi::class, 'id_regist');
+    }
 
+    //Relasi fk dari table user
+    public function user()
+    {
+        return $this->hasMany(User::class, 'nip_guru', 'nip_guru');
+    }
 
-    // public function reviews()
-    // {
-    //     return $this->hasMany(Review::class, 'mua_id', 'id');
-    // }
+    //Relasi fk dari table File_MTGuru
+    public function file_mtguru()
+    {
+        return $this->hasMany(File_MTGuru::class, 'nip_guru', 'nip_guru');
+    }
 
-    //tambahin relasi tabel koderegistrasi dan pelajaran
-
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    // protected $hidden = [
-    //     'password', 'remember_token',
-    // ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
 }
