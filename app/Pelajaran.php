@@ -12,26 +12,25 @@ class Pelajaran extends Model
     protected $fillable = [
         'id', 
         'nama_pelajaran',
-        'id_kelas',
     ];
 
-    //FK id_kelas
+    //FK id_kelas (MANY TO MANY)
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'id_kelas');
+        return $this->belongsToMany(Kelas::class)->withPivot();
     }
 
-    //Relasi fk dari table Guru
-    public function guru()
-    {
-        return $this->hasMany(Guru::class, 'id_pelajaran', 'id');
-    }
+    // //Relasi fk dari table Guru (MANY TO MANY)
+    // public function guru()
+    // {
+    //     return $this->hasMany(Guru::class, 'id_pelajaran', 'id');
+    // }
 
-    //Relasi fk dari table File_MTGuru
-    public function file_mtguru()
-    {
-        return $this->hasMany(File_MTGuru::class, 'id_pelajaran', 'id');
-    }
+    // //Relasi fk dari table File_MTGuru (MANY TO MANY)
+    // public function file_mtguru()
+    // {
+    //     return $this->hasMany(File_MTGuru::class, 'id_pelajaran', 'id');
+    // }
 
     //Relasi fk dari table File_TSiswa
     public function file_tsiswa()

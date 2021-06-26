@@ -20,17 +20,17 @@ class Kelas extends Model
         return $this->hasMany(Siswa::class, 'id_kelas', 'id');
     }
 
-    //Relasi FK dari tabel Pelajaran
+    //Relasi FK dari tabel Pelajaran (MANY TO MANY)
     public function pelajaran()
     {
-        return $this->hasMany(Pelajaran::class, 'id_kelas', 'id');
+        return $this->belongsToMany(Pelajaran::class)->withPivot();
     }
 
-    //Relasi fk dari table File_MTGuru
-    public function file_mtguru()
-    {
-        return $this->hasMany(File_MTGuru::class, 'id_kelas', 'id');
-    }
+    // //Relasi fk dari table File_MTGuru (MANY TO MANY)
+    // public function file_mtguru()
+    // {
+    //     return $this->hasMany(File_MTGuru::class, 'id_kelas', 'id');
+    // }
 
     //Relasi fk dari table File_TSiswa
     public function file_tsiswa()

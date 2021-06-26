@@ -15,11 +15,11 @@ class Guru extends Model
         'id_regist',
     ];
 
-    //FK id_pelajaran
-    public function pelajaran()
-    {
-        return $this->belongsTo(Pelajaran::class, 'id_pelajaran');
-    }
+    // //FK id_pelajaran (MANY TO MANY)
+    // public function pelajaran()
+    // {
+    //     return $this->belongsTo(Pelajaran::class, 'id_pelajaran');
+    // }
 
     //FK id_regist
     public function kode_registrasi()

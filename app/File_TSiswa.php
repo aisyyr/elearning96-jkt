@@ -18,11 +18,11 @@ class File_TSiswa extends Model
         'id_kelas',
     ];
 
-    //FK nisn_siswa
-    public function siswa()
-    {
-        return $this->belongsTo(Siswa::class, 'nisn_siswa');
-    }
+    // //FK nisn_siswa (MANY TO MANY)
+    // public function siswa()
+    // {
+    //     return $this->belongsTo(Siswa::class, 'nisn_siswa');
+    // }
 
     //FK id_pelajaran
     public function pelajaran()

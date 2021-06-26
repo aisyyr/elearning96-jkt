@@ -120,6 +120,7 @@
                         @endif
 
 
+
                          <!--UNTUK MIDDLEWARE SISWA-->
                          @if(auth()->user()->roles == 'Siswa')
                         <div class="input-group">
@@ -130,6 +131,21 @@
                                 required autocomplete="nisn_siswa" maxlength="10">
 
                                 @error('nisn_siswa')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="kode_regist" class="label">{{ __('Kode Registrasi') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="kode_regist" type="text" class="input--style-4 form-control @error('kode_regist') is-invalid @enderror" name="kode_regist"
+                                value="{{ old('kode_regist') }}" required autocomplete="kode_regist" maxlength="10">
+
+                                @error('kode_regist')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

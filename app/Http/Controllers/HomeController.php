@@ -26,8 +26,4 @@ class HomeController extends Controller
         return view('dashboard1');
     }
 
-    public function regist2()
-    {
-        return view('midregister');
-    }
 }

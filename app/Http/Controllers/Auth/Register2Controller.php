@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Guru;
 use App\Siswa;
+use App\Pelajaran;
+use App\Kelas;
+use App\Kode_Registrasi;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -52,7 +55,12 @@ class Register2Controller extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nip_guru' => ['required', 'string', 'max:16'],
+            'nip_guru' => ['required', 'int', 'max:16'],
+            'nama_pelajaran' => ['required', 'string'],
+
+            'nisn_siswa' => ['required', 'int', 'max:10'],
+            'kelass' => ['required', 'string'],
+
             'kode_regist' => ['required', 'string', 'max:10'],
         ]);
         // return Validator::make($data, [
@@ -72,11 +80,13 @@ class Register2Controller extends Controller
         return Guru::create([
             'nip_guru' => $data['nip_guru'],
             'kode_regist' => $data['kode_regist'],
+            'nama_pelajaran' => $data['nama_pelajaran'],
         ]);
-        // return Siswa::create([
-        //     'nisn_siswa' => $data['nisn_siswa'],
-        //     'kode_regist' => $data['kode_regist'],
-        // ]);
+        return Siswa::create([
+            'nisn_siswa' => $data['nisn_siswa'],
+            'kelass' => $data['kelass'],
+            'kode_regist' => $data['kode_regist'],
+        ]);
     }
 
     // protected function validator(array $data)

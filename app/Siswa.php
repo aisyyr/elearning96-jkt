@@ -33,11 +33,11 @@ class Siswa extends Model
         return $this->hasMany(User::class, 'nisn_siswa', 'nisn_siswa');
     }
 
-    //Relasi fk dari table File_TSiswa
-    public function file_tsiswa()
-    {
-        return $this->hasMany(File_TSiswa::class, 'nisn_siswa', 'nisn_siswa');
-    }
+    // //Relasi fk dari table File_TSiswa (MANY TO MANY)
+    // public function file_tsiswa()
+    // {
+    //     return $this->hasMany(File_TSiswa::class, 'nisn_siswa', 'nisn_siswa');
+    // }
 
     //Relasi fk dari table Nilai_Tugas
     public function nilai_tugas()

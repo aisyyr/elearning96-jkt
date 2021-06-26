@@ -24,6 +24,20 @@
     <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/css/sb-admin-2.css')}}" rel="stylesheet">
 
+     <!--LINK HREF UNTUK DROPDOWN-->
+    <!-- Icons font CSS-->
+    <link href="{{asset('admin/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{{asset('admin/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin/vendor/datepicker/daterangepicker.css')}}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{{asset('admin/css/main.css')}}" rel="stylesheet" media="all">
+
 </head>
 
 
@@ -45,32 +59,32 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             @if(auth()->user()->roles == 'admin')
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/homesite-admin">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Homesite</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/pengguna-guru">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Pengguna</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/koderegistrasi">
                     <i class="fas fa-fw fa-key"></i>
                     <span>Kode Registrasi</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/pelajaran-7">
                     <i class="fas fa-fw fa-book-open"></i>
                     <span>Pelajaran</span></a>
             </li>
@@ -79,19 +93,19 @@
 
             @if(auth()->user()->roles == 'Guru')
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/homesite-guru">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Homesite</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/virtualclassroom">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Virtual Classroom</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/nilaisiswa">
                     <i class="fas fa-fw fa-book-open"></i>
                     <span>Nilai</span></a>
             </li>
@@ -181,20 +195,20 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
                                    @if(auth()->user()->roles == 'Guru')
-                                   <a class="dropdown-item" href="#">
+                                   <a class="dropdown-item" href="/pengaturan-guru">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Pengaturan
                                    </a>
                                    @endif
 
                                    @if(auth()->user()->roles == 'Siswa')
-                                   <a class="dropdown-item" href="#">
+                                   <a class="dropdown-item" href="/pengaturan-siswa">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Pengaturan
                                    </a>
                                    @endif
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="/HalamanUtama"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -259,7 +273,7 @@
                 <div class="modal-body">Pilih "Logout" jika Anda ingin keluar.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ route('logout') }}" 
+                    <a class="btn btn-primary" href="/HalamanUtama" 
                                         onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
@@ -281,6 +295,16 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+
+    <!-- Jquery JS-->
+    <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
+    <!-- Vendor JS-->
+    <script src="{{asset('admin/vendor/select2/select2.min.js')}}"></script>
+    <script src="{{asset('admin/vendor/datepicker/moment.min.js')}}"></script>
+    <script src="{{asset('admin/vendor/datepicker/daterangepicker.js')}}"></script>
+
+    <!-- Main JS-->
+    <script src="{{asset('admin/js/global.js')}}"></script>
 
 </body>
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIdKelasToPelajaran extends Migration
+class CreateKelasPelajaranTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class AddIdKelasToPelajaran extends Migration
      */
     public function up()
     {
-        Schema::table('pelajaran', function (Blueprint $table) {
+        Schema::create('kelas_pelajaran', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('id_kelas');
             $table->foreign('id_kelas')->references('id')->on('kelas');
+            $table->unsignedBigInteger('id_pelajaran');
+            $table->foreign('id_pelajaran')->references('id')->on('pelajaran');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +30,7 @@ class AddIdKelasToPelajaran extends Migration
      */
     public function down()
     {
-        Schema::table('pelajaran', function (Blueprint $table) {
-            $table->dropForeign(['id_kelas']);
-            $table->dropColumn(['id_kelas']);
-        });
+        Schema::dropIfExists('kelas_pelajaran');
     }
+    
 }
