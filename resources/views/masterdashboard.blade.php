@@ -35,8 +35,8 @@
     <link href="{{asset('admin/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin/vendor/datepicker/daterangepicker.css')}}" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
-    <link href="{{asset('admin/css/main.css')}}" rel="stylesheet" media="all">
+    <!-- Main CSS
+    <link href="{{asset('admin/css/main.css')}}" rel="stylesheet"> -->
 
 </head>
 
@@ -99,7 +99,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/virtualclassroom">
+                <a class="nav-link" href="/virtualclassroom1">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Virtual Classroom</span></a>
             </li>
@@ -114,13 +114,13 @@
 
             @if(auth()->user()->roles == 'Siswa')
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/homesite-siswa">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Homesite</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/virtualclassroom2">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Virtual Classroom</span></a>
             </li>
@@ -208,7 +208,7 @@
                                    </a>
                                    @endif
 
-                                    <a class="dropdown-item" href="/HalamanUtama"
+                                    <a class="dropdown-item"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -273,7 +273,7 @@
                 <div class="modal-body">Pilih "Logout" jika Anda ingin keluar.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/HalamanUtama" 
+                    <a class="btn btn-primary"
                                         onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}

@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!---->
 					<div class="header-logo">
 						<div class="logo">
-						<a href="#Home"><img src="{{asset('admin/images/lo1.png')}}" alt="" width="100%" height="100%"></a>
+						<a href="#Home"><img src="{{asset('admin/images/lo1.png')}}" width="60%" height="60%" alt="" width="100%" height="100%"></a>
 						</div>
 						<div class="top-nav">
 							<span class="icon"><img src="{{asset('admin/images/menu.png')}}" alt=""> </span>
@@ -72,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li ><a href="#Home" >Home</a> </li>
 						<li ><a href="#about">About  </a> </li>
 						<li><a href="#kontak">Contact</a></li>
-						<li><a href="#Home"> <img src="{{asset('admin/images/lo1.png')}}" alt=""> </a></li>
+						<li><a href="#Home"> <img src="{{asset('admin/images/lo1.png')}}" width="60%" height="60%" alt=""> </a></li>
 						<li><div class="header-login">
 									 <div class="top-nav-right">
 										<div id="loginContainer"> <a href="{{ route('login') }}" target="_blank" id="login"><span>Login</span></a>
@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<img src="{{asset('admin/images/i1.png')}}" width="100%" height="100%" alt="">
 					</div>
 					<div class="col-md-4 bann-grid">
-							<img class="img-circle " src="{{asset('admin/img/SMPN.jpg')}}" width="100%" height="150%" alt="">
+							<img class="img-circle " src="{{asset('admin/img/SMPN.jpg')}}" width="100%" height="300%" alt="">
 					</div>
 					<div class="col-md-4 bann-grid">
 							<img class="img-circle " src="{{asset('admin/images/i3.jpg')}}" width="90%" height="110%" alt="">

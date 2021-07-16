@@ -55,8 +55,10 @@
                                         </select>
                                         <div class="select-dropdown"></div>
                                    </div>
+                                   <br>
+                                   <br>
                                    <div class="p-t-30">
-                                        <button class="btn btn--radius-2 btn--blue" type="submit">Pilih</button>
+                                        <button class="btn btn-primary btn-icon-split" type="submit">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</button>
                                    </div>
                          </div>
                     </div>

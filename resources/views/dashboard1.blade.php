@@ -18,6 +18,7 @@
                         2. Mengubah Hak Akses Pengguna (Guru & Siswa) <br> 
                         3. Membuat Kode Registrasi Pengguna (Guru & Siswa) <br> 
                         4. Mengubah atau Menambahkan Pelajaran</h2>
+                    
                 @endif
 
 
@@ -31,7 +32,9 @@
                     <br>
                     <h4 class="h4 mb-4 text-gray-700">Data Diri Pengajar / Guru</h4>
                     <h4 class="h4 mb-4 text-gray-700">Nama : {{ Auth::user()->name }}</h4>
+                    <br>
                 </div>
+                
                 @endif
 
 

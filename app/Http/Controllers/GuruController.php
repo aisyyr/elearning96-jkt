@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class GuruController extends Controller
 {
     public function index()
     {
-        return view('guru.ghomesite');
+        $file_informasi = DB::table('file_informasi')->get();
+        return view('guru.ghomesite', compact('file_informasi'));
     }
 
     public function vclass1()
@@ -34,5 +36,7 @@ class GuruController extends Controller
     public function pengaturan()
     {
         return view('guru.gpengaturan');
+        // $users = DB::table('users')->get();
+        // return view('guru.gpengaturan', compact('users'));
     }
 }
