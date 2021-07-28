@@ -17,16 +17,9 @@
                                    <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="subject">
                                         <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
-                                        <option>Bahasa Indonesia</option>
-                                        <option>Pendidikan Agama</option>
-                                        <option>Matematika</option>
-                                        <option>Seni Budaya</option>
-                                        <option>IPA</option>
-                                        <option>PKN</option>
-                                        <option>Bahasa Inggris</option>
-                                        <option>IPS</option>
-                                        <option>Prakarya</option>
-                                        <option>PJOK</option>
+                                        @foreach($pelajaran as $mp)
+                                             <option value="{{$mp->id}}">{{$mp->nama_pelajaran}}</option>
+                                        @endforeach
                                         </select>
                                         <div class="select-dropdown"></div>
                                    </div>
@@ -34,24 +27,9 @@
                                    <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="subject">
                                         <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
-                                        <option>7-1</option>
-                                        <option>7-2</option>
-                                        <option>7-3</option>
-                                        <option>7-4</option>
-                                        <option>7-5</option>
-                                        <option>7-6</option>
-                                        <option>8-1</option>
-                                        <option>8-2</option>
-                                        <option>8-3</option>
-                                        <option>8-4</option>
-                                        <option>8-5</option>
-                                        <option>8-6</option>
-                                        <option>9-1</option>
-                                        <option>9-2</option>
-                                        <option>9-3</option>
-                                        <option>9-4</option>
-                                        <option>9-5</option>
-                                        <option>9-6</option>
+                                        @foreach($kelas as $kls)
+                                             <option value="{{$kls->id}}">{{$kls->kelass}}</option>
+                                        @endforeach
                                         </select>
                                         <div class="select-dropdown"></div>
                                    </div>

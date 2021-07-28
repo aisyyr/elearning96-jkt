@@ -15,12 +15,14 @@ class SiswaController extends Controller
 
     public function vclass()
     {
-        return view('siswa.svclass');
+        $pelajaran = \App\Pelajaran::all();
+        return view('siswa.svclass', ['pelajaran' => $pelajaran]);
     }
 
     public function vclassmateri()
     {
-        return view('siswa.svclass-materi');
+        $file_mtguru = DB::table('file_mtguru')->get();
+        return view('siswa.svclass-materi', compact('file_mtguru'));
     }
 
     public function vclasstugas()

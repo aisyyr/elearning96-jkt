@@ -5,13 +5,12 @@
           <!-- Begin Page Content -->
           <div class="container-fluid" >
 
-               <form role="form" action="/homesite-admin/{{$file_informasi->id}}" method="POST">
+               <form role="form" action="/homesite-admin/{{$file_informasi->id}}" method="POST" enctype="multipart/form-data">
                @csrf
                @method('PUT')
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-700">Edit File Informasi {{$file_informasi->id}}</h1>
-                    <br>
-                    <br>
+                    <h1 class="h3 mb-4 text-gray-700">Edit File Informasi</h1>
+                    
                     <label class="label" for="judul">Judul</label>
                     <input class="input--style-4" type="text" name="file_info" value="{{ old('file_info', $file_informasi->file_info)}}">
                     @error('file_info')
@@ -34,10 +33,14 @@
                     <br>
                     <br>
 
-                    <input type="file" href="" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+                    <iframe src="{{ asset('storage/file_informasi/dqObRWRB07YWO8EQWwbFiMui87OmhWTx5H8JvnSV.pdf') }}" frameborder="2"  width="900" height="400"></iframe>
+                    <br><br>
+                    <input type="file" href="" name="file_doc" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
 
                     <br>
                     <br>
+
+                    <br><br>
 
                     <div>
                          <button type="submit" class="btn btn-primary btn-icon-split">Ubah</button>

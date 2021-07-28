@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\User;
 use App\Pelajaran;
 use App\Kelas;
@@ -12,6 +13,37 @@ class Register2Controller extends Controller
 {
 
     // protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function index()
+    {
+        // $user = DB::table('users')->get();
+        // $kode_registrasi = DB::table('kode_registrasi')->get();
+        return view('midregister');
+    }
+
+    public function regstore(Request $request)
+    {
+
+        $request->validate([
+            'nip_guru' => 'unique:guru',
+            'nisn_siswa' => 'unique:siswa',
+            'kode_regist' => 'required'
+        ]);
+
+        $query = DB::table('guru')->insert([
+            "nip_guru" => $request["nip_guru"]
+        ]);
+
+        $query = DB::table('siswa')->insert([
+            "nisn_siswa" => $request["nisn_siswa"]
+        ]);
+
+        $query = DB::table('kode_registrasi')->insert([
+            "kode_regist" => $request["kode_regist"]
+        ]);
+
+        return redirect('/dashboard')->with('success', 'Akun E-Learning Berhasil dibuat !');
+    }
 
     // public function create() {
     //     return view('midregister');
@@ -49,13 +81,13 @@ class Register2Controller extends Controller
 
     // }
 
-    public function index() {
-    //     $regist = DB::table('users')->get();
-    //     $kode = DB::table('Kode_Registrasi')->get();
-    //     $mapel = DB::table('Pelajaran')->get();
-    //     $kelas = DB::table('Kelas')->get();
+    // public function index() {
+    // //     $regist = DB::table('users')->get();
+    // //     $kode = DB::table('Kode_Registrasi')->get();
+    // //     $mapel = DB::table('Pelajaran')->get();
+    // //     $kelas = DB::table('Kelas')->get();
 
-        return view('dashboard1', compact('users'));
-    }
+    //     return view('dashboard1', compact('users'));
+    // }
 
 }

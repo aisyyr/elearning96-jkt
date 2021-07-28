@@ -8,63 +8,50 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-700">Virtual Classroom</h1>
 
-          <!-- /.container-fluid -->
-          <form method="POST">
-               <div class="wrapper wrapper--w960 ml-1">
-                    <div class="card card-4">
-                         <div class="card-body">
-                              <label class="label">&nbsp; Pelajaran</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
-                                        <option>Bahasa Indonesia</option>
-                                        <option>Pendidikan Agama</option>
-                                        <option>Matematika</option>
-                                        <option>Seni Budaya</option>
-                                        <option>IPA</option>
-                                        <option>PKN</option>
-                                        <option>Bahasa Inggris</option>
-                                        <option>IPS</option>
-                                        <option>Prakarya</option>
-                                        <option>PJOK</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <label class="label">&nbsp; Kelas</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
-                                        <option>7-1</option>
-                                        <option>7-2</option>
-                                        <option>7-3</option>
-                                        <option>7-4</option>
-                                        <option>7-5</option>
-                                        <option>7-6</option>
-                                        <option>8-1</option>
-                                        <option>8-2</option>
-                                        <option>8-3</option>
-                                        <option>8-4</option>
-                                        <option>8-5</option>
-                                        <option>8-6</option>
-                                        <option>9-1</option>
-                                        <option>9-2</option>
-                                        <option>9-3</option>
-                                        <option>9-4</option>
-                                        <option>9-5</option>
-                                        <option>9-6</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <br>
-                                   <br>
-                                   <div class="p-t-30">
-                                        <button class="btn btn-primary btn-icon-split" type="submit">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</button>
-                                   </div>
-                         </div>
-                    </div>
+          <a href="/virtual-classroom" class="btn btn-primary btn-icon-split">
+               <span class="text">&nbsp;&nbsp;&nbsp;Unggah File Materi / Tugas&nbsp;&nbsp;&nbsp;</span>
+          </a>
+          <br><br>
+
+          @if(session('success'))
+               <div class="alert alert-success">
+               {{ session('success') }}
                </div>
-          </form>
+          @endif
+
+          <br>
+
+          <table class="table table-bordered">
+          <thead>
+          <tr>
+               <th style="width: 10px">No.</th>
+               <th>Keterangan</th>
+               <th>Kelas</th>
+               <th>Pelajaran</th>
+               <th style="width: 40px">Pengaturan</th>
+          </tr>
+          </thead>
+          <tbody>
+          @foreach($file_mtguru as $key => $file_mtguru)
+               <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $file_mtguru->keterangan }}</td>
+                    <td>kelas</td>
+                    <td>pelajaran</td>
+                    <td style="display:flex;">
+                         <a href="/virtualclassroom1/{{$file_mtguru->id}}/edit" class="btn btn-primary">Ubah</a>&nbsp;
+                         <form action="/virtualclassroom1/{{$file_mtguru->id}}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <input type="submit" value="Hapus" class="btn btn-danger">
+                         </form>
+                    </td>
+               </tr>
+          @endforeach
+          </tbody>
+          </table>
+
      </div>
-     <!-- End of Main Content -->
+     <!-- /.container-fluid -->
 
 @endsection

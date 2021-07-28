@@ -23,7 +23,7 @@ class Kelas extends Model
     //Relasi FK dari tabel Pelajaran (MANY TO MANY)
     public function pelajaran()
     {
-        return $this->belongsToMany(Pelajaran::class)->withPivot();
+        return $this->belongsToMany(Pelajaran::class);
     }
 
     // //Relasi fk dari table File_MTGuru (MANY TO MANY)

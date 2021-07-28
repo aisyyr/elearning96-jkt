@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 // use App\User;
-// use App\File_Informasi;
+use App\File_Informasi;
 // use App\Guru;
-// use App\Kelas;
+use App\Kelas;
 // use App\Kode_Registrasi;
-// use App\Pelajaran;
+use App\Pelajaran;
 // use App\Siswa;
 
 class AdminController extends Controller
@@ -27,7 +27,9 @@ class AdminController extends Controller
         $query = DB::table('file_informasi')->insert([
             "file_info" => $request["file_info"],
             "keterangan" => $request["keterangan"],
-            "tanggal_unggah" => $request["tanggal_unggah"]
+            "tanggal_unggah" => $request["tanggal_unggah"],
+            "informasi" => $request["informasi"],
+            "file_doc" => $request["file_doc"] -> store("file_informasi")
         ]);
 
         return redirect('/homesite-admin')->with('success', 'File Informasi berhasil diunggah!');
@@ -38,6 +40,7 @@ class AdminController extends Controller
     public function index()
     {
         $file_informasi = DB::table('file_informasi')->get();
+
         return view('admin.admhomesite', compact('file_informasi'));
     }
 
@@ -60,7 +63,9 @@ class AdminController extends Controller
                     ->update([
                         'file_info' => $request['file_info'],
                         'keterangan' => $request['keterangan'],
-                        'tanggal_unggah' => $request['tanggal_unggah']
+                        'tanggal_unggah' => $request['tanggal_unggah'],
+                        'informasi' => $request['informasi'],
+                        'file_doc' => $request['file_doc'] -> store('file_informasi')
                     ]);
 
         return redirect('/homesite-admin')->with('success', 'File Informasi Berhasil di Ubah!');
@@ -79,12 +84,26 @@ class AdminController extends Controller
 
     public function pengguna1()
     {
-        return view('admin.admpengguna');
+        $users = DB::table('users')->get()->where('roles', 'Guru');
+        return view('admin.admpengguna', compact('users'));
+    }
+
+    public function destroyguru($name)
+    {
+        $query = DB::table('users')->where('name', $name)->delete();
+        return redirect('/pengguna-guru')->with('success', 'Akun Guru Berhasil di Hapus!');
     }
 
     public function pengguna2()
     {
-        return view('admin.admpengguna2');
+        $users = DB::table('users')->get()->where('roles', 'Siswa');
+        return view('admin.admpengguna2', compact('users'));
+    }
+
+    public function destroysiswa($name)
+    {
+        $query = DB::table('users')->where('name', $name)->delete();
+        return redirect('/pengguna-siswa')->with('success', 'Akun Siswa Berhasil di Hapus!');
     }
 
     public function kodereg()
@@ -117,18 +136,46 @@ class AdminController extends Controller
     }
 
 
+
+    public function upload2()
+    {
+        return view('admin.admpelajaran-upload');
+    }
+
+    public function store2(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'pelajaran_id' => 'required',
+            'kelas_id' => 'required|unique:kelas'
+        ]);
+
+        $query = DB::table('kelas_pelajaran')->insert([
+            "pelajaran_id" => $request["pelajaran_id"],
+            "kelas_id" => $request["kelas_id"]
+        ]);
+
+        return redirect('/pelajaran-7')->with('success', 'Mata Pelajaran berhasil ditambahkan!');
+
+        // return view('admin.admhomesite');
+    }
+
     public function kelas7()
     {
-        return view('admin.admpelajaran7');
+        $kelas_pelajaran = DB::table('kelas_pelajaran')->where('kelas_id', '<=', 6)->get();
+        return view('admin.admpelajaran7', compact('kelas_pelajaran'));
     }
 
     public function kelas8()
     {
-        return view('admin.admpelajaran8');
+        $kelas_pelajaran = DB::table('kelas_pelajaran')->where('kelas_id', '>=', 7)->get();
+        return view('admin.admpelajaran8', compact('kelas_pelajaran'));
     }
 
     public function kelas9()
     {
-        return view('admin.admpelajaran9');
+        $kelas_pelajaran = DB::table('kelas_pelajaran')->where('kelas_id', '>=', 13)->get();
+        return view('admin.admpelajaran9', compact('kelas_pelajaran'));
     }
 }

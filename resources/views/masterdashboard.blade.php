@@ -120,7 +120,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/virtualclassroom2">
+                <a class="nav-link" href="/vclass-materi">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Virtual Classroom</span></a>
             </li>

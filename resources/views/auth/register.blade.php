@@ -43,8 +43,8 @@
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="roles" id="roles" class="form-control @error('roles') is-invalid @enderror" name="roles" required autocomplete="roles">
                                     <option disabled="disabled" selected="selected">-- Pilih Role --</option>
-                                    <option>{{ __('Guru') }}</option>
-                                    <option>{{ __('Siswa') }}</option>
+                                    <option value="guru">{{ __('Guru') }}</option>
+                                    <option value="siswa">{{ __('Siswa') }}</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                                 @error('roles')
@@ -76,6 +76,23 @@
                                 <input id="password-confirm" type="password" class="input--style-4 form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
+                        <!-- <select id="size" name="dokter">
+                                <option value=""></option>
+                        </select>
+                        <script name="midroles">
+                            $(document).ready(function() {
+                                $("#roles").change(function() {
+                                    var val = $(this).val();
+                                    if (val == "Guru") {
+                                        $("#size").html("<option value='Dr. Haryodi S.'>Dr. Haryodi S. </option><option value='Dr. Maria FR'>Dr. Maria FR </option>");
+                                    } else if (val == "Siswa") {
+                                        $("#size").html("<option value='Dr. Farrel K'>Dr. Farrel K. </option><option value='Dr. Alfiqh R '>Dr. Alfiqh R </option>");
+                                });
+                            });
+                        </script> -->
+
+
 
                         <div class="form-group row mb-0">
                             <div class="p-t-30">

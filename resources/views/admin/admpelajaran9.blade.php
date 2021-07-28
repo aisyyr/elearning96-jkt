@@ -19,9 +19,35 @@
           </a>
           <br>
           <br>
-          <a href="" class="btn btn-primary btn-icon-split">
+          <a href="/tambah-pelajaran" class="btn btn-primary btn-icon-split">
                <span class="text">(+) Tambah Mata Pelajaran</span>
           </a>
+
+          <div class="card-body">
+               <table class="table table-bordered">
+               <thead>
+               <tr>
+                    <th style="width: 10px">No.</th>
+                    <th>Nama Pelajaran</th>
+                    <th>Id Kelas</th>
+                    <th style="width: 40px">Pengaturan</th>
+               </tr>
+               </thead>
+               <tbody>
+               @foreach($kelas_pelajaran as $key => $kelas_pelajaran)
+               <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $kelas_pelajaran->pelajaran_id }}</td>
+                    <td>{{ $kelas_pelajaran->kelas_id }}</td>
+                    <td style="display:flex;">
+                         <a href="" class="btn btn-primary">Ubah</a>&nbsp;
+                         <a href="" class="btn btn-danger">Hapus</a>
+                    </td>
+               </tr>
+               @endforeach
+               </tbody>
+               </table>
+          </div>
      </div>
      <!-- /.container-fluid -->
 

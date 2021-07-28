@@ -20,7 +20,7 @@
                               <p class="card-text">{{ $file_informasi->keterangan }}</p>
                               <p class="card-text">{{ $file_informasi->tanggal_unggah }}</p>
                               <div style="display: flex;">
-                              <a href="" class="btn btn-primary">Download</a>
+                              <a href="/homesite-info/{{$file_informasi->id}}" class="btn btn-primary">Lihat Informasi</a>
                               </div>
                          </div>
                     </div>

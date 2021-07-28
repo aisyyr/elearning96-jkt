@@ -2,19 +2,66 @@
 
 @section('content')
 
-     <!-- Begin Page Content -->
-     <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid" >
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-700">Virtual Classroom</h1>
-          <h2 class="h5 mb-4 text-gray-700">Pelajaran : NamaPelajaran</h2>
-          <h2 class="h5 mb-4 text-gray-700">Kelas : Kelas</h2>
+<form role="form" action="/virtualclassroom1" method="POST" enctype="multipart/form-data">
+@csrf
+     <!-- Page Heading -->
+     <h1 class="h3 mb-4 text-gray-700">Unggah File Materi / Tugas</h1>
+     <label class="label" for="file_guru">Judul</label>
+     <input class="input--style-4" type="text" name="file_guru" value="{{ old('file_guru'), '' }}">
+     @error('file_guru')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror
 
-          <a href="" class="btn btn-primary btn-icon-split">
-               <span class="text">&nbsp;&nbsp;&nbsp;Unggah File Materi / Tugas&nbsp;&nbsp;&nbsp;</span>
-          </a>
+     <label class="label" for="keterangan">Keterangan</label>
+     <input class="input--style-4" type="text" name="keterangan" value="{{ old('keterangan'), '' }}">
+     @error('keterangan')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror
 
+     <label class="label" for="tanggal_unggah">Tanggal Unggah</label>
+     <input class="input--style-4" type="date" name="tanggal_unggah" value="{{ old('tanggal_unggah'), '' }}">
+     @error('tanggal_unggah')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror
+
+     <br><br>
+
+          <label class="label">&nbsp; Pelajaran</label>
+          <div class="rs-select2 js-select-simple select--no-search">
+               <select name="nama_pelajaran">
+               <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
+               @foreach($pelajaran as $pelajaran)
+                    <option name="pelajaran" value="{{$pelajaran->id}}">{{$pelajaran->nama_pelajaran}}</option>
+               @endforeach
+               </select>
+               <div class="select-dropdown"></div>
+          </div>
+          <label class="label">&nbsp; Kelas</label>
+          <div class="rs-select2 js-select-simple select--no-search">
+               <select name="kelass">
+               <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
+               @foreach($kelas as $kls)
+                    <option name="kelas" value="{{$kls->id}}">{{$kls->kelass}}</option>
+               @endforeach
+               </select>
+               <div class="select-dropdown"></div>
+          </div>
+     <br>
+     <br>
+
+     <input type="file" href="" name="file_doc" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+     <br><br>
+
+     <div>
+          <button type="submit" class="btn btn-primary btn-icon-split">Upload</button>
      </div>
-     <!-- /.container-fluid -->
+</form>
+
+</div>
+<!-- /.container-fluid -->
+
 
 @endsection

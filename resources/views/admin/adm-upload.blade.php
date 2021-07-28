@@ -5,7 +5,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid" >
 
-               <form role="form" action="/homesite-admin" method="POST">
+               <form role="form" action="/homesite-admin" method="POST" enctype="multipart/form-data">
                @csrf
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-700">Unggah File Informasi</h1>
@@ -30,8 +30,8 @@
                     <br>
                     <br>
                     <br>
-
-                    <input type="file" href="" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+                    <iframe src="{{ asset('storage/file_informasi/dqObRWRB07YWO8EQWwbFiMui87OmhWTx5H8JvnSV.pdf') }}" frameborder="0"  width="900" height="400"></iframe>
+                    <input type="file" href="" name="file_doc" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
 
                     <br>
                     <br>

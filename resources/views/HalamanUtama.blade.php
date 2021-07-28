@@ -52,8 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li ><a href="#Home">Home</a> </li>
 								<li ><a href="#about" >About  </a> </li>
 								<li><a href="#kontak"  >Contact</a></li>
-								<li><a href="{{ route('login') }}" target="_blank" id="login"><span>Login</span></a></li>
-								<li><a href="{{ route('register') }}" target="_blank" id="register"><span>Register</span></a></li>
+								<li><a href="{{ route('login') }}" id="login"><span>Login</span></a></li>
+								<li><a href="{{ route('register') }}" id="register"><span>Register</span></a></li>
 							</ul>
 							<!--script-->
 						<script>
@@ -75,13 +75,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#Home"> <img src="{{asset('admin/images/lo1.png')}}" width="60%" height="60%" alt=""> </a></li>
 						<li><div class="header-login">
 									 <div class="top-nav-right">
-										<div id="loginContainer"> <a href="{{ route('login') }}" target="_blank" id="login"><span>Login</span></a>
+										<div id="loginContainer"> <a href="{{ route('login') }}" id="login"><span>Login</span></a>
 									  </div>
 								   </div>
 							</div></li>
 							<li><div class="header-login">
 								<div class="top-nav-right">
-								    <div id="loginContainer"> <a href="{{ route('register') }}" target="_blank" id="register"><span>Register</span></a>
+								    <div id="loginContainer"> <a href="{{ route('register') }}" id="register"><span>Register</span></a>
 									</div>
 								</div>
 							</div></li>
@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container text-center">
 		<h1>Sekolah Menengah Pertama Negeri 96 Jakarta</h1>
 		<h1>Telah Terakreditasi A</h1>
-		<div class="bann-info-btn"><a href="http://sekolah.data.kemdikbud.go.id/index.php/chome/profil/8004EE95-2BF5-E011-AF55-913D6FAF5EDB" target="_blank" class="hvr-bounce-to-right" >Selengkapnya</a></div>
+		<div class="bann-info-btn"><a href="https://akupintar.id/sekolah/-/cari-sekolah/detail_sekolah/smp-negeri-96-jakarta/83409316" target="_blank" class="hvr-bounce-to-right" >Selengkapnya</a></div>
 	</div>
 </div>
 <!--banner-info end here-->

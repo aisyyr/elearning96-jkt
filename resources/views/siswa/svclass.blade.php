@@ -17,21 +17,15 @@
                                    <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="subject">
                                              <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
-                                             <option>Bahasa Indonesia</option>
-                                             <option>Pendidikan Agama</option>
-                                             <option>Matematika</option>
-                                             <option>Seni Budaya</option>
-                                             <option>IPA</option>
-                                             <option>PKN</option>
-                                             <option>Bahasa Inggris</option>
-                                             <option>IPS</option>
-                                             <option>Prakarya</option>
-                                             <option>PJOK</option>
+                                             @foreach($pelajaran as $mp)
+                                                  <option value="{{$mp->id}}">{{$mp->nama_pelajaran}}</option>
+                                             @endforeach
                                         </select>
                                         <div class="select-dropdown"></div>
                                    </div>
+                                   <br>
                                    <div class="p-t-30">
-                                        <button class="btn btn--radius-2 btn--blue" type="submit">Pilih</button>
+                                        <button class="btn btn-primary btn-icon-split" type="submit">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</button>
                                    </div>
                          </div>
                     </div>
