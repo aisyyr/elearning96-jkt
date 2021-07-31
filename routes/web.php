@@ -6,8 +6,8 @@ Route::get('/', function () {
 
 Route::get('/HalamanUtama', 'HomeeController@index');
 
-Route::get('/register2', 'Register2Controller@index');
-Route::post('/register2', 'Register2Controller@regstore');
+Route::get('/register2', 'Register2Controller@index')->name('register2');
+Route::post('/register2', 'Register2Controller@store');
 
 
 Auth::routes();
@@ -19,8 +19,10 @@ Route::get('/dashboard', 'HomeController@index')->name('home');
 //ADMIN
 Route::post('/homesite-admin', 'AdminController@store');
 Route::get('/homesite-admin', 'AdminController@index');
+
 Route::get('/homesite-admin/{id}/edit', 'AdminController@edit');
 Route::put('/homesite-admin/{id}', 'AdminController@update');
+
 Route::delete('/homesite-admin/{id}', 'AdminController@destroy');
 Route::get('/homesite-upload', 'AdminController@upload');
 
@@ -37,7 +39,6 @@ Route::get('/tambah-pelajaran', 'AdminController@upload2');
 Route::post('/pelajaran-7', 'AdminController@store2');
 
 Route::get('/pelajaran-7', 'AdminController@kelas7');
-
 
 Route::get('/pelajaran-8', 'AdminController@kelas8');
 Route::get('/pelajaran-9', 'AdminController@kelas9');
@@ -56,7 +57,10 @@ Route::get('/virtual-classroom', 'GuruController@vclass2');
 
 Route::get('/nilaisiswa', 'GuruController@nilai1');
 Route::get('/nilai-siswa', 'GuruController@nilai2');
+
 Route::get('/pengaturan-guru', 'GuruController@pengaturan');
+Route::get('/pengaturan-guru/{id}/edit', 'GuruController@pengaturan2');
+Route::put('/pengaturan-guru/{id}', 'GuruController@pengupdate');
 
 
 //SISWA
@@ -64,8 +68,15 @@ Route::get('/homesite-siswa', 'SiswaController@index');
 Route::get('/virtualclassroom2', 'SiswaController@vclass');
 
 Route::get('/vclass-materi', 'SiswaController@vclassmateri');
+Route::get('/vclass-materi2/{id}', 'SiswaController@open');
+
 Route::get('/vclass-tugas', 'SiswaController@vclasstugas');
+
 Route::get('/pengaturan-siswa', 'SiswaController@pengaturan');
+Route::get('/pengaturan-siswa/{id}/edit', 'SiswaController@pengaturan2');
+Route::put('/pengaturan-siswa/{id}', 'SiswaController@pengupdate');
+
+
 
 
 

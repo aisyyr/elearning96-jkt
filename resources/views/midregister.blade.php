@@ -9,7 +9,7 @@
                 <div class="card-body">
                 <h3 class="title" align="center">Registrasi Akun {{ Auth::user()->roles }}</h3>
 
-                <form role="form" method="POST" action="/dashboard" enctype="multipart/form-data">
+                <form role="form" method="POST" action="{{ route('register2') }}" enctype="multipart/form-data">
                         @csrf
                         @if(auth()->user()->roles == 'guru')
                         <div class="input-group">
@@ -77,7 +77,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                </form>
 
                 </div>
             </div>

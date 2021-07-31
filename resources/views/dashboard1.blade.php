@@ -25,6 +25,7 @@
                 @if(auth()->user()->roles == 'Guru')
                 <div class="container-fluid">
                     <!-- Page Heading -->
+                    
                     <h1 class="h3 mb-4 text-gray-700">Selamat Datang,</h1>
                     <h2 class="h4 mb-4 text-gray-700">Selamat Mengajar dan Tetap Semangat!</h2>
                     <br>

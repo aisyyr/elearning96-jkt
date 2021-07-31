@@ -9,10 +9,13 @@ use App\Pelajaran;
 use App\Kelas;
 use App\Kode_Registrasi;
 
+use Illuminate\Foundation\Auth\RegistersUsers;
+
 class Register2Controller extends Controller
 {
 
     // protected $redirectTo = RouteServiceProvider::HOME;
+
 
     public function index()
     {
@@ -21,28 +24,24 @@ class Register2Controller extends Controller
         return view('midregister');
     }
 
-    public function regstore(Request $request)
+    public function store(Request $request)
     {
 
-        $request->validate([
-            'nip_guru' => 'unique:guru',
-            'nisn_siswa' => 'unique:siswa',
-            'kode_regist' => 'required'
-        ]);
+        // $request->validate([
+        //     'nip_guru' => 'unique:guru',
+        //     'nisn_siswa' => 'unique:siswa',
+        //     'kode_regist' => 'required'
+        // ]);
 
         $query = DB::table('guru')->insert([
             "nip_guru" => $request["nip_guru"]
         ]);
 
-        $query = DB::table('siswa')->insert([
-            "nisn_siswa" => $request["nisn_siswa"]
-        ]);
+        // $query = DB::table('siswa')->insert([
+        //     "nisn_siswa" => $request["nisn_siswa"]
+        // ]);
 
-        $query = DB::table('kode_registrasi')->insert([
-            "kode_regist" => $request["kode_regist"]
-        ]);
-
-        return redirect('/dashboard')->with('success', 'Akun E-Learning Berhasil dibuat !');
+        return redirect('login')->with('success', 'Akun E-Learning Berhasil dibuat !');
     }
 
     // public function create() {

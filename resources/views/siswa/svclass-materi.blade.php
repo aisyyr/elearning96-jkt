@@ -26,7 +26,7 @@
                               <h6 class="card-title">{{ $key + 1 }}</h5>
                               <p class="card-text">{{ $file_mtguru->keterangan }}</p>
                               <div style="display: flex;">
-                              <a href="" class="btn btn-primary">Lihat File Materi/Tugas</a>
+                              <a href="/vclass-materi2/{{$file_mtguru->id}}" class="btn btn-primary">Lihat File Materi/Tugas</a>
                               </div>
                          </div>
                     </div>

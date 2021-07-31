@@ -104,4 +104,27 @@ class GuruController extends Controller
         // $users = DB::table('users')->get();
         // return view('guru.gpengaturan', compact('users'));
     }
+
+    public function pengaturan2($id)
+    {
+        $user = DB::table('users')->where('id', $id)->first();
+        return view('guru.gpengaturan2', compact('user'));
+    }
+
+    public function pengupdate($id, Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required'
+        ]);
+
+        $query = DB::table('users')
+                    ->where('id', $id)
+                    ->update([
+                        'email' => $request['email'],
+                        'name' => $request['name']
+                    ]);
+
+        return redirect('/pengaturan-guru')->with('success', 'Pengaturan berhasil disimpan !');
+    }
 }
