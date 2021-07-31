@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Pelajaran;
+use App\File_TSiswa;
 
 class SiswaController extends Controller
 {
@@ -33,7 +35,62 @@ class SiswaController extends Controller
 
     public function vclasstugas()
     {
-        return view('siswa.svclass-tugas');
+        $file_tsiswa = DB::table('file_tsiswa')->get();
+        return view('siswa.svclass-tugas', compact('file_tsiswa'));
+    }
+
+    public function storetugas(Request $request)
+    {
+        $request->validate([
+            'file_tugas' => 'required',
+            'keterangan' => 'required',
+            'tanggal_unggah' => 'required'
+        ]);
+
+        $query = DB::table('file_tsiswa')->insert([
+            "file_tugas" => $request["file_tugas"],
+            "keterangan" => $request["keterangan"],
+            "tanggal_unggah" => $request["tanggal_unggah"]
+        ]);
+
+        return redirect('/vclass-tugas')->with('success', 'File Tugas berhasil diunggah!');
+    }
+
+    public function tugasedit($id)
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->where('id', $id)->first();
+        return view('siswa.svclass-tugasedit', compact('file_tsiswa'));
+    }
+
+    public function tugasupdate($id, Request $request)
+    {
+        $request->validate([
+            'file_tugas' => 'required',
+            'keterangan' => 'required',
+            'tanggal_unggah' => 'required'
+        ]);
+
+        $query = DB::table('file_tsiswa')
+                    ->where('id', $id)
+                    ->update([
+                        "file_tugas" => $request["file_tugas"],
+                        "keterangan" => $request["keterangan"],
+                        "tanggal_unggah" => $request["tanggal_unggah"]
+                    ]);
+
+        return redirect('/vclass-tugas')->with('success', 'File Tugas Berhasil di Ubah!');
+    }
+
+    public function tugasdestroy($id)
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->where('id', $id)->delete();
+        return redirect('/vclass-tugas')->with('success', 'File Tugas Berhasil di Hapus!');
+    }
+
+    public function vclasstugas2(Request $request)
+    {
+        $pelajaran = \App\Pelajaran::all();
+        return view('siswa.svclass-tugas2', ['pelajaran' => $pelajaran]);
     }
 
     public function pengaturan()

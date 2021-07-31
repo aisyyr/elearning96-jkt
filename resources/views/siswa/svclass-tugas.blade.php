@@ -18,38 +18,50 @@
      <br>
      <br>
 
-     <div class="wrapper wrapper--w960 ml-0">
-          <div class="card card-4">
-               <div class="card-body">
-                    <label class="label">Pilih Tugas</label>
-                    <div class="rs-select2 js-select-simple select--no-search">
-                         <select name="subject">
-                              <option disabled="disabled" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tugas Ke- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                              <option>Tugas 1</option>
-                              <option>Tugas 2</option>
-                              <option>Tugas 3</option>
-                              <option>Tugas 4</option>
-                              <option>Tugas 5</option>
-                              <option>Tugas 6</option>
-                              <option>Tugas 7</option>
-                              <option>Tugas 8</option>
-                              <option>Tugas 9</option>
-                              <option>Tugas 10</option>
-                         </select> 
-                         <br><br>
-                         <a href="#" class="btn btn-primary btn-icon-split">
-                              <span class="text">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</span>
-                         </a>
-                         <div class="select-dropdown"></div>
-                    </div>
-                    <br>
-                    <br>
-                    <a href="#" class="btn btn-primary btn-icon-split">
-                         <span class="text">&nbsp;&nbsp;&nbsp;Unggah File Tugas&nbsp;&nbsp;&nbsp;</span>
-                    </a>
-               </div>
+     <a href="/vclasstugas-unggah" class="btn btn-primary btn-icon-split">
+          <span class="text">&nbsp;&nbsp;&nbsp;(+) Unggah File Tugas&nbsp;&nbsp;&nbsp;</span>
+     </a>
+
+     <br><br>
+
+     @if(session('success'))
+          <div class="alert alert-success">
+          {{ session('success') }}
           </div>
-     </div>
+     @endif
+
+     <table class="table table-bordered">
+     <thead>
+     <tr>
+          <th style="width: 10px">No.</th>
+          <th>Judul Tugas</th>
+          <th>Keterangan</th>
+          <th>Pelajaran</th>
+          <th>Tanggal Unggah</th>
+          <th style="width: 40px">Pengaturan</th>
+     </tr>
+     </thead>
+     <tbody>
+     @foreach($file_tsiswa as $key => $file_tsiswa)
+          <tr>
+               <td>{{ $key + 1 }}</td>
+               <td>{{ $file_tsiswa->file_tugas }}</td>
+               <td>{{ $file_tsiswa->keterangan }}</td>
+               <td>pelajaran</td>
+               <td>{{ $file_tsiswa->tanggal_unggah}}</td>
+               <td style="display:flex;">
+                    <a href="/vclass-tugas/{{$file_tsiswa->id}}/edit" class="btn btn-primary">Ubah</a>&nbsp;
+                    <form action="/vclass-tugas/{{$file_tsiswa->id}}" method="post">
+                         @csrf
+                         @method('DELETE')
+                         <input type="submit" value="Hapus" class="btn btn-danger">
+                    </form>
+               </td>
+          </tr>
+     @endforeach
+     </tbody>
+     </table>
+
 
      </div>
      <!-- /.container-fluid -->

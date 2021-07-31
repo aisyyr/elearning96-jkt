@@ -56,6 +56,8 @@ Route::delete('/virtualclassroom1/{id}', 'GuruController@destroyvguru');
 Route::get('/virtual-classroom', 'GuruController@vclass2');
 
 Route::get('/nilaisiswa', 'GuruController@nilai1');
+Route::get('/nilaisiswa2/{id}', 'GuruController@tugasopen');
+
 Route::get('/nilai-siswa', 'GuruController@nilai2');
 
 Route::get('/pengaturan-guru', 'GuruController@pengaturan');
@@ -71,6 +73,11 @@ Route::get('/vclass-materi', 'SiswaController@vclassmateri');
 Route::get('/vclass-materi2/{id}', 'SiswaController@open');
 
 Route::get('/vclass-tugas', 'SiswaController@vclasstugas');
+Route::post('/vclass-tugas', 'SiswaController@storetugas');
+Route::get('/vclass-tugas/{id}/edit', 'SiswaController@tugasedit');
+Route::put('/vclass-tugas/{id}', 'SiswaController@tugasupdate');
+Route::delete('/vclass-tugas/{id}', 'SiswaController@tugasdestroy');
+Route::get('/vclasstugas-unggah', 'SiswaController@vclasstugas2');
 
 Route::get('/pengaturan-siswa', 'SiswaController@pengaturan');
 Route::get('/pengaturan-siswa/{id}/edit', 'SiswaController@pengaturan2');

@@ -9,7 +9,7 @@
           <h1 class="h3 mb-4 text-gray-700">Virtual Classroom</h1>
 
           <a href="/virtual-classroom" class="btn btn-primary btn-icon-split">
-               <span class="text">&nbsp;&nbsp;&nbsp;Unggah File Materi / Tugas&nbsp;&nbsp;&nbsp;</span>
+               <span class="text">&nbsp;&nbsp;&nbsp;(+) Unggah File Materi / Tugas&nbsp;&nbsp;&nbsp;</span>
           </a>
           <br><br>
 

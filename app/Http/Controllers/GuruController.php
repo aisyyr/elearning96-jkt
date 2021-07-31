@@ -41,8 +41,7 @@ class GuruController extends Controller
 
         $query = DB::table('file_mtguru')->insert([
             "file_guru" => $request["file_guru"],
-            "keterangan" => $request["keterangan"],
-            "kelas"
+            "keterangan" => $request["keterangan"]
         ]);
 
         return redirect('/virtualclassroom1')->with('success', 'File Materi / Tugas berhasil diunggah!');
@@ -88,9 +87,14 @@ class GuruController extends Controller
 
     public function nilai1()
     {
-        $pelajaran = \App\Pelajaran::all();
-        $kelas = \App\Kelas::all();
-        return view('guru.gnilai1', ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
+        $file_tsiswa = DB::table('file_tsiswa')->get();
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function tugasopen($id)
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->where('id', $id)->first();
+        return view('guru.gnilai2', compact('file_tsiswa'));
     }
 
     public function nilai2()
