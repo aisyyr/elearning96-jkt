@@ -20,7 +20,7 @@ class User extends Authenticatable
         'email', 
         'password', 
         'roles', 
-        'nip_guru', 
+        // 'nip_guru', 
         'nisn_siswa',
     ];
     
@@ -47,10 +47,10 @@ class User extends Authenticatable
 
 
     //FK nip_guru
-    public function guru()
-    {
-        return $this->belongsTo(Guru::class, 'nip_guru');
-    }
+    // public function guru()
+    // {
+    //     return $this->belongsTo(Guru::class, 'nip_guru');
+    // }
 
     //FK nisn_siswa
     public function siswa()

@@ -16,6 +16,10 @@ Route::get('/dashboard', 'HomeController@index')->name('home');
 
 
 
+Route::get('/searched', 'HomeController@sindex');
+
+
+
 //ADMIN
 Route::post('/homesite-admin', 'AdminController@store');
 Route::get('/homesite-admin', 'AdminController@index');

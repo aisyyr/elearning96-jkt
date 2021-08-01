@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Pelajaran;
+use App\Kelas;
 use App\File_TSiswa;
 
 class SiswaController extends Controller
@@ -18,13 +19,17 @@ class SiswaController extends Controller
     public function vclass()
     {
         $pelajaran = \App\Pelajaran::all();
-        return view('siswa.svclass', ['pelajaran' => $pelajaran]);
+        $kelas = \App\Kelas::all();
+        return view('siswa.svclass', ['pelajaran' => $pelajaran, 'kelas' => $kelas]);
     }
 
     public function vclassmateri()
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+
         $file_mtguru = DB::table('file_mtguru')->get();
-        return view('siswa.svclass-materi', compact('file_mtguru'));
+        return view('siswa.svclass-materi', compact('file_mtguru'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function open($id)
@@ -35,8 +40,11 @@ class SiswaController extends Controller
 
     public function vclasstugas()
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+
         $file_tsiswa = DB::table('file_tsiswa')->get();
-        return view('siswa.svclass-tugas', compact('file_tsiswa'));
+        return view('siswa.svclass-tugas', compact('file_tsiswa'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function storetugas(Request $request)
@@ -44,13 +52,17 @@ class SiswaController extends Controller
         $request->validate([
             'file_tugas' => 'required',
             'keterangan' => 'required',
-            'tanggal_unggah' => 'required'
+            'tanggal_unggah' => 'required',
+            'pelajaran' => 'required',
+            'kelass' => 'required'
         ]);
 
         $query = DB::table('file_tsiswa')->insert([
             "file_tugas" => $request["file_tugas"],
             "keterangan" => $request["keterangan"],
-            "tanggal_unggah" => $request["tanggal_unggah"]
+            "tanggal_unggah" => $request["tanggal_unggah"],
+            "pelajaran" => $request["pelajaran"],
+            "kelass" => $request["kelass"]
         ]);
 
         return redirect('/vclass-tugas')->with('success', 'File Tugas berhasil diunggah!');
@@ -90,7 +102,9 @@ class SiswaController extends Controller
     public function vclasstugas2(Request $request)
     {
         $pelajaran = \App\Pelajaran::all();
-        return view('siswa.svclass-tugas2', ['pelajaran' => $pelajaran]);
+        $kelas = \App\Kelas::all();
+
+        return view('siswa.svclass-tugas2', ['pelajaran' => $pelajaran, 'kelas' => $kelas]);
     }
 
     public function pengaturan()

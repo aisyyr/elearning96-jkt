@@ -27,10 +27,10 @@ class Kelas extends Model
     }
 
     // //Relasi fk dari table File_MTGuru (MANY TO MANY)
-    // public function file_mtguru()
-    // {
-    //     return $this->hasMany(File_MTGuru::class, 'id_kelas', 'id');
-    // }
+    public function file_mtguru()
+    {
+        return $this->belongsToMany(File_MTGuru::class);
+    }
 
     //Relasi fk dari table File_TSiswa
     public function file_tsiswa()

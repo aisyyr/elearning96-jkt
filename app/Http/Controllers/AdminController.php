@@ -163,8 +163,11 @@ class AdminController extends Controller
 
     public function kelas7()
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+
         $kelas_pelajaran = DB::table('kelas_pelajaran')->where('kelas_id', '<=', 6)->get();
-        return view('admin.admpelajaran7', compact('kelas_pelajaran'));
+        return view('admin.admpelajaran7', compact('kelas_pelajaran'), ['nama_pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function kelas8()

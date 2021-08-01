@@ -8,6 +8,8 @@ use App\Pelajaran;
 use App\Kelas;
 use App\File_Informasi;
 use App\File_MTGuru;
+use App\File_TSiswa;
+
 
 class GuruController extends Controller
 {
@@ -25,10 +27,11 @@ class GuruController extends Controller
 
     public function vclass1()
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+        
         $file_mtguru = DB::table('file_mtguru')->get();
-        return view('guru.gvclass1', compact('file_mtguru'));
-        // $pelajaran = \App\Pelajaran::all();
-        // $kelas = \App\Kelas::all();
+        return view('guru.gvclass1', compact('file_mtguru'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
         // return view('guru.gvclass1', ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
@@ -87,8 +90,11 @@ class GuruController extends Controller
 
     public function nilai1()
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+
         $file_tsiswa = DB::table('file_tsiswa')->get();
-        return view('guru.gnilai1', compact('file_tsiswa'));
+        return view('guru.gnilai1', compact('file_tsiswa'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function tugasopen($id)

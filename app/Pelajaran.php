@@ -21,16 +21,16 @@ class Pelajaran extends Model
     }
 
     // //Relasi fk dari table Guru (MANY TO MANY)
-    // public function guru()
-    // {
-    //     return $this->hasMany(Guru::class, 'id_pelajaran', 'id');
-    // }
+    public function guru()
+    {
+        return $this->belongsToMany(Guru::class);
+    }
 
     // //Relasi fk dari table File_MTGuru (MANY TO MANY)
-    // public function file_mtguru()
-    // {
-    //     return $this->hasMany(File_MTGuru::class, 'id_pelajaran', 'id');
-    // }
+    public function file_mtguru()
+    {
+        return $this->belongsToMany(File_MTGuru::class);
+    }
 
     //Relasi fk dari table File_TSiswa
     public function file_tsiswa()
