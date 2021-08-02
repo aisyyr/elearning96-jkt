@@ -11,6 +11,7 @@
 
                 <form role="form" method="POST" action="{{ route('register2') }}" enctype="multipart/form-data">
                         @csrf
+                        @method('GET')
                         @if(auth()->user()->roles == 'guru')
                         <div class="input-group">
                             <label for="nip_guru" class="label">{{ __('NIP Guru') }}</label>

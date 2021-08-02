@@ -31,10 +31,10 @@
 
           <label class="label">&nbsp; Pelajaran</label>
           <div class="rs-select2 js-select-simple select--no-search">
-               <select name="nama_pelajaran">
+               <select name="pelajaran">
                <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
                @foreach($pelajaran as $pelajaran)
-                    <option name="pelajaran" value="{{$pelajaran->id}}">{{$pelajaran->nama_pelajaran}}</option>
+                    <option name="pelajaran" value="{{$pelajaran->nama_pelajaran}}">{{$pelajaran->nama_pelajaran}}</option>
                @endforeach
                </select>
                <div class="select-dropdown"></div>
@@ -43,8 +43,8 @@
           <div class="rs-select2 js-select-simple select--no-search">
                <select name="kelass">
                <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
-               @foreach($kelas as $kls)
-                    <option name="kelas" value="{{$kls->id}}">{{$kls->kelass}}</option>
+               @foreach($kelas as $kelas)
+                    <option name="kelass" value="{{$kelas->kelass}}">{{$kelas->kelass}}</option>
                @endforeach
                </select>
                <div class="select-dropdown"></div>

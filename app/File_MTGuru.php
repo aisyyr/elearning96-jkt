@@ -13,14 +13,18 @@ class File_MTGuru extends Model
         'id', 
         'file_guru',
         'keterangan',
+        'kelass',
+        'pelajaran',
+        'nip_guru',
         'id_pelajaran',
+        'id_kelas',
     ];
 
     //FK nip_guru
-    // public function guru()
-    // {
-    //     return $this->belongsTo(Guru::class, 'nip_guru');
-    // }
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'nip_guru');
+    }
 
     // //FK id_pelajaran (MANY TO MANY)
     public function pelajaran()

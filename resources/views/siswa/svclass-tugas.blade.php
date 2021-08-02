@@ -73,11 +73,12 @@
      <tr>
           <th style="width: 10px">No.</th>
           <th>Judul Tugas</th>
-          <th>Keterangan</th>
           <th>Pelajaran</th>
           <th>Kelas</th>
           <th>Tanggal Unggah</th>
           <th style="width: 40px">Pengaturan</th>
+          <th>Nilai Tugas</th>
+          <th>Catatan Guru</th>
      </tr>
      </thead>
      <tbody>
@@ -85,7 +86,6 @@
           <tr>
                <td>{{ $key + 1 }}</td>
                <td>{{ $file_tsiswa->file_tugas }}</td>
-               <td>{{ $file_tsiswa->keterangan }}</td>
                <td>{{ $file_tsiswa->pelajaran }}</td>
                <td>{{ $file_tsiswa->kelass }}</td>
                <td>{{ $file_tsiswa->tanggal_unggah}}</td>
@@ -97,6 +97,8 @@
                          <input type="submit" value="Hapus" class="btn btn-danger">
                     </form>
                </td>
+               <td>90</td>
+               <td>catatan dari guru</td>
           </tr>
      @endforeach
      </tbody>

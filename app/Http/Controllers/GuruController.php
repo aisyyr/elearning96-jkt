@@ -39,12 +39,16 @@ class GuruController extends Controller
     {
         $request->validate([
             'file_guru' => 'required|unique:file_mtguru',
-            'keterangan' => 'required'
+            'keterangan' => 'required',
+            'pelajaran' => 'required',
+            'kelass' => 'required'
         ]);
 
         $query = DB::table('file_mtguru')->insert([
             "file_guru" => $request["file_guru"],
-            "keterangan" => $request["keterangan"]
+            "keterangan" => $request["keterangan"],
+            "pelajaran" => $request["pelajaran"],
+            "kelass" => $request["kelass"]
         ]);
 
         return redirect('/virtualclassroom1')->with('success', 'File Materi / Tugas berhasil diunggah!');
@@ -83,9 +87,10 @@ class GuruController extends Controller
     {
         //dd($request->all());
         $pelajaran = \App\Pelajaran::all();
-        $pelajaran = DB::table('pelajaran')->get();
         $kelas = \App\Kelas::all();
-        return view('guru.gvclass2', compact('pelajaran'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
+
+        // $pelajaran = DB::table('pelajaran')->get();
+        return view('guru.gvclass2', ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function nilai1()
@@ -99,8 +104,11 @@ class GuruController extends Controller
 
     public function tugasopen($id)
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+
         $file_tsiswa = DB::table('file_tsiswa')->where('id', $id)->first();
-        return view('guru.gnilai2', compact('file_tsiswa'));
+        return view('guru.gnilai2', compact('file_tsiswa'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function nilai2()

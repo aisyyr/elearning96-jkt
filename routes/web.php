@@ -6,15 +6,13 @@ Route::get('/', function () {
 
 Route::get('/HalamanUtama', 'HomeeController@index');
 
-Route::get('/register2', 'Register2Controller@index')->name('register2');
-Route::post('/register2', 'Register2Controller@store');
+Route::get('/register2', 'Register2Controller@index');
+Route::post('/register2', 'Register2Controller@store')->name('register2');
 
 
 Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
-
-
 
 Route::get('/searched', 'HomeController@sindex');
 

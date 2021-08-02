@@ -74,8 +74,8 @@
                <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $file_mtguru->keterangan }}</td>
-                    <td>7-1</td>
-                    <td>Matematika</td>
+                    <td>{{ $file_mtguru->pelajaran }}</td>
+                    <td>{{ $file_mtguru->kelass }}</td>
                     <td style="display:flex;">
                          <a href="/virtualclassroom1/{{$file_mtguru->id}}/edit" class="btn btn-primary">Ubah</a>&nbsp;
                          <form action="/virtualclassroom1/{{$file_mtguru->id}}" method="post">

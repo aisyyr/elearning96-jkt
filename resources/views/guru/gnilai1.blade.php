@@ -58,12 +58,13 @@
           <thead>
           <tr>
                <th style="width: 10px">No.</th>
-               <th>Judul</th>
-               <th>Keterangan</th>
+               <th>Judul Tugas</th>
+               <th>Keterangan Tugas</th>
                <th>Pelajaran</th>
                <th>Kelas</th>
                <th style="width: 40px">Selengkapnya</th>
                <th>Nilai</th>
+               <th>Catatan Guru</th>
           </tr>
           </thead>
           <tbody>
@@ -78,6 +79,7 @@
                          <a href="/nilaisiswa2/{{ $file_tsiswa->id }}" class="btn btn-primary">Lihat File</a>&nbsp;
                     </td>
                     <td>...</td>
+                    <td>Komentar Guru</td>
                </tr>
 
           @endforeach

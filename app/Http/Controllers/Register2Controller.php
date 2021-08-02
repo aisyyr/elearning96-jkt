@@ -8,6 +8,8 @@ use App\User;
 use App\Pelajaran;
 use App\Kelas;
 use App\Kode_Registrasi;
+use App\Guru;
+use App\Siswa;
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -41,7 +43,7 @@ class Register2Controller extends Controller
         //     "nisn_siswa" => $request["nisn_siswa"]
         // ]);
 
-        return redirect('login')->with('success', 'Akun E-Learning Berhasil dibuat !');
+        return redirect('/dashboard')->with('success', 'Akun E-Learning Berhasil dibuat !');
     }
 
     // public function create() {
