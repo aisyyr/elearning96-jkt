@@ -1,3 +1,7 @@
+<head>
+     <title>Pengaturan</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -6,7 +10,7 @@
 <div class="container-fluid">
 
      <!-- Page Heading -->
-     <h1 class="h3 mb-4 text-gray-700">Pengaturan Akun Guru</h1>
+     <h1 class="h3 mb-4 text-gray-700">Pengaturan Akun Siswa</h1>
 
      <form role="form" action="/pengaturan-siswa/{{auth()->user()->id}}" method="POST" enctype="multipart/form-data">
      @csrf
@@ -19,6 +23,15 @@
 
           <label class="label">Nama</label>
           <input class="input--style-4" type="text" name="name" value="{{ auth()->user()->name }}" >
+
+          <br>
+          <label class="label">NISN Siswa</label>
+          <input class="input--style-4" type="text" name="penggunaid" value="{{ auth()->user()->penggunaid }}" maxlength="10">
+
+          <br>
+
+          <label class="label">Kode Registrasi</label>
+          <input class="input--style-4" type="text" name="kode_regist" value="{{ auth()->user()->kode_regist }}" maxlength="10">
 
           <br><br><br>
 

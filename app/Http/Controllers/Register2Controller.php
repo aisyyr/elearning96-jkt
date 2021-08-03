@@ -29,14 +29,14 @@ class Register2Controller extends Controller
     public function store(Request $request)
     {
 
-        // $request->validate([
-        //     'nip_guru' => 'unique:guru',
-        //     'nisn_siswa' => 'unique:siswa',
-        //     'kode_regist' => 'required'
-        // ]);
+        $request->validate([
+            'penggunaid' => 'required|unique:users',
+            'kode_regist' => 'required'
+        ]);
 
-        $query = DB::table('guru')->insert([
-            "nip_guru" => $request["nip_guru"]
+        $query = DB::table('users')->insert([
+            "penggunaid" => $request["penggunaid"],
+            "kode_regist" => $request["kode_regist"]
         ]);
 
         // $query = DB::table('siswa')->insert([

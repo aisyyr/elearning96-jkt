@@ -91,7 +91,7 @@
             @endif
 
 
-            @if(auth()->user()->roles == 'Guru')
+            @if(auth()->user()->roles == 'guru')
             <li class="nav-item">
                 <a class="nav-link" href="/homesite-guru">
                     <i class="fas fa-fw fa-home"></i>
@@ -112,7 +112,7 @@
             @endif
 
 
-            @if(auth()->user()->roles == 'Siswa')
+            @if(auth()->user()->roles == 'siswa')
             <li class="nav-item">
                 <a class="nav-link" href="/homesite-siswa">
                     <i class="fas fa-fw fa-home"></i>
@@ -194,14 +194,14 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
-                                   @if(auth()->user()->roles == 'Guru')
+                                   @if(auth()->user()->roles == 'guru')
                                    <a class="dropdown-item" href="/pengaturan-guru">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Pengaturan
                                    </a>
                                    @endif
 
-                                   @if(auth()->user()->roles == 'Siswa')
+                                   @if(auth()->user()->roles == 'siswa')
                                    <a class="dropdown-item" href="/pengaturan-siswa">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Pengaturan

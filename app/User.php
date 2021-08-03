@@ -20,6 +20,8 @@ class User extends Authenticatable
         'email', 
         'password', 
         'roles', 
+        'penggunaid',
+        'kode_regist',
         'nip_guru', 
         'nisn_siswa',
     ];

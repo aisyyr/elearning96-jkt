@@ -41,14 +41,16 @@ class GuruController extends Controller
             'file_guru' => 'required|unique:file_mtguru',
             'keterangan' => 'required',
             'pelajaran' => 'required',
-            'kelass' => 'required'
+            'kelass' => 'required',
+            'tanggal_unggah' => 'required'
         ]);
 
         $query = DB::table('file_mtguru')->insert([
             "file_guru" => $request["file_guru"],
             "keterangan" => $request["keterangan"],
             "pelajaran" => $request["pelajaran"],
-            "kelass" => $request["kelass"]
+            "kelass" => $request["kelass"],
+            "tanggal_unggah" => $request["tanggal_unggah"]
         ]);
 
         return redirect('/virtualclassroom1')->with('success', 'File Materi / Tugas berhasil diunggah!');
@@ -56,8 +58,11 @@ class GuruController extends Controller
 
     public function editvcguru($id)
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+
         $file_mtguru = DB::table('file_mtguru')->where('id', $id)->first();
-        return view('guru.gvclass-edit', compact('file_mtguru'));
+        return view('guru.gvclass-edit', compact('file_mtguru'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function updatevguru($id, Request $request)
@@ -71,7 +76,10 @@ class GuruController extends Controller
                     ->where('id', $id)
                     ->update([
                         "file_guru" => $request["file_guru"],
-                        "keterangan" => $request["keterangan"]
+                        "keterangan" => $request["keterangan"],
+                        "pelajaran" => $request["pelajaran"],
+                        "kelass" => $request["kelass"],
+                        "tanggal_unggah" => $request["tanggal_unggah"]
                     ]);
 
         return redirect('/virtualclassroom1')->with('success', 'File Materi / Tugas Berhasil di Ubah!');
@@ -111,6 +119,29 @@ class GuruController extends Controller
         return view('guru.gnilai2', compact('file_tsiswa'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
+    //storenilai
+    public function storenilai($id, Request $request)
+    {
+        $request->validate([
+            'nilaitugas' => 'required',
+            'komentar' => 'required'
+        ]);
+
+        $query = DB::table('file_tsiswa')
+                    ->where('id', $id)
+                    ->update([
+                        // "file_tugas" => $request["file_tugas"],
+                        // "keterangan" => $request["keterangan"],
+                        // "tanggal_unggah" => $request["tanggal_unggah"],
+                        // "pelajaran" => $request["pelajaran"],
+                        // "kelass" => $request["kelass"],
+                        "nilaitugas" => $request["nilaitugas"],
+                        "komentar" => $request["komentar"]
+                    ]);
+
+        return redirect('/nilaisiswa')->with('success', 'Berhasil Menambahkan Nilai Siswa!');
+    }
+
     public function nilai2()
     {
         return view('guru.gnilai2');
@@ -133,14 +164,18 @@ class GuruController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'name' => 'required'
+            'name' => 'required',
+            'penggunaid' => 'required',
+            'kode_regist' => 'required'
         ]);
 
         $query = DB::table('users')
                     ->where('id', $id)
                     ->update([
                         'email' => $request['email'],
-                        'name' => $request['name']
+                        'name' => $request['name'],
+                        'penggunaid' => $request['penggunaid'],
+                        'kode_regist' => $request['kode_regist']
                     ]);
 
         return redirect('/pengaturan-guru')->with('success', 'Pengaturan berhasil disimpan !');

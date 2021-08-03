@@ -11,14 +11,14 @@
 
                 <form role="form" method="POST" action="{{ route('register2') }}" enctype="multipart/form-data">
                         @csrf
-                        @method('GET')
                         @if(auth()->user()->roles == 'guru')
                         <div class="input-group">
-                            <label for="nip_guru" class="label">{{ __('NIP Guru') }}</label>
+                            <label for="penggunaid" class="label">{{ __('NIP Guru') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nip_guru" type="text" class="input--style-4 " name="nip_guru" value="{{ old('nip_guru') }}">
-                                @error('nip_guru')
+                                <input id="penggunaid" type="text" class="input--style-4 " name="penggunaid" 
+                                value="{{ old('penggunaid') }}" maxlength="16">
+                                @error('penggunaid')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -30,7 +30,8 @@
                             <label for="kode_regist" class="label">{{ __('Kode Registrasi') }}</label>
 
                             <div class="col-md-6">
-                                <input id="kode_regist" type="text" class="input--style-4" name="kode_regist" value="{{ old('kode_regist') }}">
+                                <input id="kode_regist" type="text" class="input--style-4" name="kode_regist" 
+                                value="{{ old('kode_regist') }}" maxlength="10">
                                 @error('kode_regist')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -43,12 +44,13 @@
 
                         @if(auth()->user()->roles == 'siswa')
                         <div class="input-group">
-                            <label for="nisn_siswa" class="label">{{ __('NISN Siswa') }}</label>
+                            <label for="penggunaid" class="label">{{ __('NISN Siswa') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nisn_siswa" type="text" class="input--style-4" name="nisn_siswa" value="{{ old('nisn_siswa') }}">
+                                <input id="penggunaid" type="text" class="input--style-4" name="penggunaid" 
+                                value="{{ old('penggunaid') }}" maxlength="10">
 
-                                @error('nisn_siswa')
+                                @error('penggunaid')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -60,7 +62,8 @@
                             <label for="kode_regist" class="label">{{ __('Kode Registrasi') }}</label>
 
                             <div class="col-md-6">
-                                <input id="kode_regist" type="text" class="input--style-4" name="kode_regist" value="{{ old('kode_regist') }}">
+                                <input id="kode_regist" type="text" class="input--style-4" name="kode_regist" value="{{ old('kode_regist') }}"
+                                maxlength="10">
 
                                 @error('kode_regist')
                                     <span class="invalid-feedback" role="alert">

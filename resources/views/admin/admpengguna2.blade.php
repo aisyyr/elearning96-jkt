@@ -1,3 +1,7 @@
+<head>
+     <title>Pengguna</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -30,6 +34,7 @@
           <tr>
                <th>NISN Siswa</th>
                <th>Nama Siswa</th>
+               <td>Kode Registrasi</td>
                <th>Hak Akses</th>
                <th style="width: 40px">Pengaturan</th>
           </tr>
@@ -37,8 +42,9 @@
           <tbody>
           @foreach($users as $key => $user)
                <tr>
-                    <td>{{ $user->nisn_siswa }}</td>
+                    <td>{{ $user->penggunaid }}</td>
                     <td>{{ $user->name }}</td>
+                    <td>{{ $user->kode_regist }}</td>
                     <td>{{ $user->roles }} </td>
                     <td style="display:flex;">
                          <form action="/pengguna-siswa/{{$user->name}}" method="post">

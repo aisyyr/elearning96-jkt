@@ -1,3 +1,7 @@
+<head>
+     <title>Virtual Classroom</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')

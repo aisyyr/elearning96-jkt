@@ -52,9 +52,7 @@ class SiswaController extends Controller
         $request->validate([
             'file_tugas' => 'required',
             'keterangan' => 'required',
-            'tanggal_unggah' => 'required',
-            'pelajaran' => 'required',
-            'kelass' => 'required'
+            'tanggal_unggah' => 'required'
         ]);
 
         $query = DB::table('file_tsiswa')->insert([
@@ -70,8 +68,11 @@ class SiswaController extends Controller
 
     public function tugasedit($id)
     {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+
         $file_tsiswa = DB::table('file_tsiswa')->where('id', $id)->first();
-        return view('siswa.svclass-tugasedit', compact('file_tsiswa'));
+        return view('siswa.svclass-tugasedit', compact('file_tsiswa'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function tugasupdate($id, Request $request)
@@ -87,7 +88,11 @@ class SiswaController extends Controller
                     ->update([
                         "file_tugas" => $request["file_tugas"],
                         "keterangan" => $request["keterangan"],
-                        "tanggal_unggah" => $request["tanggal_unggah"]
+                        "tanggal_unggah" => $request["tanggal_unggah"],
+                        "pelajaran" => $request["pelajaran"],
+                        "kelass" => $request["kelass"],
+                        "nilaitugas" => $request["nilaitugas"],
+                        "komentar" => $request["komentar"]
                     ]);
 
         return redirect('/vclass-tugas')->with('success', 'File Tugas Berhasil di Ubah!');
@@ -122,14 +127,18 @@ class SiswaController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'name' => 'required'
+            'name' => 'required',
+            'penggunaid' => 'required',
+            'kode_regist' => 'required'
         ]);
 
         $query = DB::table('users')
                     ->where('id', $id)
                     ->update([
                         'email' => $request['email'],
-                        'name' => $request['name']
+                        'name' => $request['name'],
+                        'penggunaid' => $request['penggunaid'],
+                        'kode_regist' => $request['kode_regist']
                     ]);
 
         return redirect('/pengaturan-siswa')->with('success', 'Pengaturan berhasil disimpan !');

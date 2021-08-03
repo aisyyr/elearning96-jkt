@@ -1,3 +1,7 @@
+<head>
+     <title>Virtual Classroom - Tugas</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -30,7 +34,49 @@
 
      <br><br>
 
-          
+     <label class="label" for="kelass">Kelas</label>
+     <input class="input--style-4" type="text" name="kelass" value="{{ old('kelass', $file_tsiswa->kelass)}}" disabled>
+     @error('kelass')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror
+
+     <br>
+
+     <label class="label" for="pelajaran">Pelajaran</label>
+     <input class="input--style-4" type="text" name="pelajaran" value="{{ old('pelajaran', $file_tsiswa->pelajaran)}}" disabled>
+     @error('pelajaran')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror
+
+     <br><br>
+     <div class="wrapper wrapper--w960 ml-1">
+          <div class="card card-4">
+               <div class="card-body">
+                    <label class="label">&nbsp; Pelajaran*</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="pelajaran">
+                         <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
+                         @foreach($pelajaran as $pelajaran)
+                              <option name="pelajaran" value="{{$pelajaran->nama_pelajaran}}">{{$pelajaran->nama_pelajaran}}</option>
+                         @endforeach
+                         </select>
+                         <div class="select-dropdown"></div>
+                    </div>
+
+                    <label class="label">&nbsp; Kelas*</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="kelass">
+                         <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
+                         @foreach($kelas as $kelas)
+                              <option name="kelass" value="{{$kelas->kelass}}">{{$kelas->kelass}}</option>
+                         @endforeach
+                         </select>
+                         <div class="select-dropdown"></div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
      <br>
      <br>
 
@@ -38,7 +84,7 @@
      <br><br>
 
      <div>
-          <button type="submit" class="btn btn-primary btn-icon-split">Upload</button>
+          <button type="submit" class="btn btn-primary btn-icon-split">&nbsp;&nbsp;&nbsp;Simpan&nbsp;&nbsp;&nbsp;</button>
      </div>
 </form>
 

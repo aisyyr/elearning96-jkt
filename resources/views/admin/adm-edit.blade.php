@@ -1,3 +1,7 @@
+<head>
+     <title>Homesite</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -43,7 +47,7 @@
                     <br><br>
 
                     <div>
-                         <button type="submit" class="btn btn-primary btn-icon-split">Ubah</button>
+                         <button type="submit" class="btn btn-primary btn-icon-split">&nbsp;&nbsp;&nbsp;Ubah&nbsp;&nbsp;&nbsp;</button>
                     </div>
                </form>
 

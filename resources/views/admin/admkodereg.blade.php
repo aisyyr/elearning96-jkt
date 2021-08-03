@@ -1,3 +1,7 @@
+<head>
+     <title>Kode Registrasi</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')

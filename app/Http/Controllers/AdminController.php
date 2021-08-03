@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-// use App\User;
+use App\User;
 use App\File_Informasi;
 // use App\Guru;
 use App\Kelas;
-// use App\Kode_Registrasi;
+use App\Kode_Registrasi;
 use App\Pelajaran;
 // use App\Siswa;
 
@@ -84,7 +84,7 @@ class AdminController extends Controller
 
     public function pengguna1()
     {
-        $users = DB::table('users')->get()->where('roles', 'Guru');
+        $users = DB::table('users')->get()->where('roles', 'guru');
         return view('admin.admpengguna', compact('users'));
     }
 
@@ -96,7 +96,7 @@ class AdminController extends Controller
 
     public function pengguna2()
     {
-        $users = DB::table('users')->get()->where('roles', 'Siswa');
+        $users = DB::table('users')->get()->where('roles', 'siswa');
         return view('admin.admpengguna2', compact('users'));
     }
 

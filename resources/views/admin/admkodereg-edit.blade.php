@@ -1,3 +1,7 @@
+<head>
+     <title>Kode Registrasi</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -19,7 +23,8 @@
                     @enderror
 
                     <label class="label" for="kode_regist">Kode Registrasi</label>
-                    <input class="input--style-4" type="text" name="kode_regist" value="{{ old('kode_regist', $kode_registrasi->kode_regist)}}">
+                    <input class="input--style-4" type="text" name="kode_regist" value="{{ old('kode_regist', $kode_registrasi->kode_regist)}}"
+                    maxlength="10">
                     @error('kode_regist')
                          <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

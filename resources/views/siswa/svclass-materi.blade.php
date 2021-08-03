@@ -1,3 +1,7 @@
+<head>
+     <title>Virtual Classroom - Materi</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -24,30 +28,30 @@
                     <div class="card card-4">
                          <div class="card-body">
                               <label class="label">&nbsp; Pelajaran</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
-                                        @foreach($pelajaran as $pelajaran)
-                                             <option value="{{$pelajaran->id}}">{{$pelajaran->nama_pelajaran}}</option>
-                                        @endforeach
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <label class="label">&nbsp; Kelas</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
-                                        @foreach($kelas as $kelas)
-                                             <option value="{{$kelas->id}}">{{$kelas->kelass}}</option>
-                                        @endforeach
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <br>
-                                   <br>
-                                   <div class="p-t-50 mt-20">
-                                        <button class="btn btn-primary btn-icon-split" type="submit">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</button>
-                                   </div>
+                              <div class="rs-select2 js-select-simple select--no-search">
+                                   <select name="subject">
+                                   <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
+                                   @foreach($pelajaran as $pelajaran)
+                                        <option value="{{$pelajaran->id}}">{{$pelajaran->nama_pelajaran}}</option>
+                                   @endforeach
+                                   </select>
+                                   <div class="select-dropdown"></div>
+                              </div>
+                              <label class="label">&nbsp; Kelas</label>
+                              <div class="rs-select2 js-select-simple select--no-search">
+                                   <select name="subject">
+                                   <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
+                                   @foreach($kelas as $kelas)
+                                        <option value="{{$kelas->id}}">{{$kelas->kelass}}</option>
+                                   @endforeach
+                                   </select>
+                                   <div class="select-dropdown"></div>
+                              </div>
+                              <br>
+                              <br>
+                              <div class="p-t-50 mt-20">
+                                   <button class="btn btn-primary btn-icon-split" type="submit">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</button>
+                              </div>
                          </div>
                     </div>
                </div>

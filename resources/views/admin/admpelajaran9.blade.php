@@ -1,3 +1,7 @@
+<head>
+     <title>Pelajaran</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')

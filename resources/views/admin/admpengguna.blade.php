@@ -1,3 +1,7 @@
+<head>
+     <title>Pengguna</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -15,7 +19,8 @@
                <span class="text">&nbsp;Siswa&nbsp;</span>
           </a>
 
-          <br><br>
+          <br>
+          <br>
 
           @if(session('success'))
                <div class="alert alert-success">
@@ -30,6 +35,7 @@
           <tr>
                <th>NIP Guru</th>
                <th>Nama Guru</th>
+               <th>Kode Registrasi</th>
                <th>Hak Akses</th>
                <th style="width: 40px">Pengaturan</th>
           </tr>
@@ -37,8 +43,9 @@
           <tbody>
           @foreach($users as $key => $user)
                <tr>
-                    <td>{{ $user->nip_guru }}</td>
+                    <td>{{ $user->penggunaid }}</td>
                     <td>{{ $user->name }}</td>
+                    <td>{{ $user->kode_regist }}</td>
                     <td>{{ $user->roles }} </td>
                     <td style="display:flex;">
                          <form action="/pengguna-guru/{{$user->name}}" method="post">

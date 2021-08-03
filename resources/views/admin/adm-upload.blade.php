@@ -1,3 +1,7 @@
+<head>
+     <title>Homesite</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -37,7 +41,7 @@
                     <br>
 
                     <div>
-                         <button type="submit" class="btn btn-primary btn-icon-split">Upload</button>
+                         <button type="submit" class="btn btn-primary btn-icon-split">&nbsp;&nbsp;&nbsp;Unggah File&nbsp;&nbsp;&nbsp;</button>
                     </div>
                </form>
 

@@ -1,3 +1,8 @@
+<head>
+     <title>Virtual Classroom</title>
+</head>
+
+
 @extends('masterdashboard')
 
 @section('content')
@@ -63,9 +68,11 @@
           <thead>
           <tr>
                <th style="width: 10px">No.</th>
+               <th>Judul Materi / Tugas</th>
                <th>Keterangan</th>
-               <th>Kelas</th>
                <th>Pelajaran</th>
+               <th>Kelas</th>
+               <th>Tanggal Unggah</th>
                <th style="width: 40px">Pengaturan</th>
           </tr>
           </thead>
@@ -73,11 +80,15 @@
           @foreach($file_mtguru as $key => $file_mtguru)
                <tr>
                     <td>{{ $key + 1 }}</td>
+                    <td>{{ $file_mtguru->file_guru }}</td>
                     <td>{{ $file_mtguru->keterangan }}</td>
                     <td>{{ $file_mtguru->pelajaran }}</td>
                     <td>{{ $file_mtguru->kelass }}</td>
+                    <td>{{ $file_mtguru->tanggal_unggah }}</td>
                     <td style="display:flex;">
-                         <a href="/virtualclassroom1/{{$file_mtguru->id}}/edit" class="btn btn-primary">Ubah</a>&nbsp;
+                         <a href="/virtualclassroom1/{{$file_mtguru->id}}/edit" class="btn btn-primary btn-icon-split">
+                              <span class="text">Ubah</span>
+                         </a>&nbsp;
                          <form action="/virtualclassroom1/{{$file_mtguru->id}}" method="post">
                               @csrf
                               @method('DELETE')

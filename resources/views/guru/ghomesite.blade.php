@@ -1,3 +1,7 @@
+<head>
+     <title>Homesite</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')

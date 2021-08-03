@@ -1,3 +1,7 @@
+<head>
+     <title>Homesite</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -9,7 +13,7 @@
                <h1 class="h3 mb-4 text-gray-700">Homesite</h1>
 
                <a type="file" href="/homesite-upload" class="btn btn-primary btn-icon-split btn-sm mb-4">
-                    <span class="text">&nbsp;&nbsp;&nbsp;Unggah File Informasi&nbsp;&nbsp;&nbsp;</span>
+                    <span class="text">&nbsp;&nbsp;&nbsp;(+) Unggah File Informasi&nbsp;&nbsp;&nbsp;</span>
                </a>
                
                @if(session('success'))

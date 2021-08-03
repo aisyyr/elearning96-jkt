@@ -1,3 +1,7 @@
+<head>
+     <title>Virtual Classroom - Tugas</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -97,8 +101,8 @@
                          <input type="submit" value="Hapus" class="btn btn-danger">
                     </form>
                </td>
-               <td>90</td>
-               <td>catatan dari guru</td>
+               <td>{{ $file_tsiswa->nilaitugas }}</td>
+               <td>{{ $file_tsiswa->komentar }}</td>
           </tr>
      @endforeach
      </tbody>

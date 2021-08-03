@@ -1,3 +1,7 @@
+<head>
+     <title>Pengaturan Akun Guru</title>
+</head>
+
 @extends('masterdashboard')
 
 @section('content')
@@ -21,11 +25,20 @@
                <span class="text">&nbsp;&nbsp;&nbsp;Ubah&nbsp;&nbsp;&nbsp;</span>
           </a>
 
-
           <br>
 
           <label class="label">Nama</label>
           <input class="input--style-4" type="text" name="name" value="{{ auth()->user()->name }}" disabled>
+
+          <br>
+
+          <label class="label">NIP Guru</label>
+          <input class="input--style-4" type="text" name="name" value="{{ auth()->user()->penggunaid }}" disabled>
+
+          <br>
+
+          <label class="label">Kode Registrasi</label>
+          <input class="input--style-4" type="text" name="name" value="{{ auth()->user()->kode_regist }}" disabled>
 
           <br>
 

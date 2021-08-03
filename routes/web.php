@@ -58,7 +58,8 @@ Route::delete('/virtualclassroom1/{id}', 'GuruController@destroyvguru');
 Route::get('/virtual-classroom', 'GuruController@vclass2');
 
 Route::get('/nilaisiswa', 'GuruController@nilai1');
-Route::get('/nilaisiswa2/{id}', 'GuruController@tugasopen');
+Route::get('/nilaisiswa2/{id}/edit', 'GuruController@tugasopen');
+Route::put('/nilaisiswa2/{id}', 'GuruController@storenilai');
 
 Route::get('/nilai-siswa', 'GuruController@nilai2');
 

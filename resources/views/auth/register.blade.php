@@ -9,7 +9,6 @@
                 <h3 class="title" align="center">Registrasi Akun Pengguna <br> E-Learning SMP Negeri 96 Jakarta</h3>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="input-group">
                             <label for="name" class="label">{{ __('Nama Lengkap') }}</label>
 
@@ -17,6 +16,21 @@
                                 <input id="name" type="text" class="input--style-4 form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
 
                                 @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="penggunaid" class="label">{{ __('Nomor Identitas') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="penggunaid" type="text" class="input--style-4 form-control @error('penggunaid') is-invalid @enderror" name="penggunaid" 
+                                value="{{ old('penggunaid') }}" required autocomplete="penggunaid" maxlength="16">
+
+                                @error('penggunaid')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -48,6 +62,21 @@
                                 </select>
                                 <div class="select-dropdown"></div>
                                 @error('roles')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="kode_regist" class="label">{{ __('Kode Registrasi') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="kode_regist" type="text" class="input--style-4 form-control @error('kode_regist') is-invalid @enderror" name="kode_regist" 
+                                value="{{ old('kode_regist') }}" required autocomplete="kode_regist" maxlength="10">
+
+                                @error('kode_regist')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -97,7 +126,7 @@
                         <div class="form-group row mb-0">
                             <div class="p-t-30">
                                 <button type="submit" class="btn btn--radius-2 btn--blue">
-                                    {{ __('Next') }}
+                                    {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
