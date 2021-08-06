@@ -67,7 +67,7 @@
      <br><br>
 
      <div>
-          <button type="submit" class="btn btn-primary btn-icon-split">Upload</button>
+          <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Unggah&nbsp;&nbsp;&nbsp;</button>
      </div>
 </form>
 

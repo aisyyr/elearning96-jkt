@@ -84,7 +84,7 @@
      <br><br>
 
      <div>
-          <button type="submit" class="btn btn-primary btn-icon-split">&nbsp;&nbsp;&nbsp;Simpan&nbsp;&nbsp;&nbsp;</button>
+          <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Simpan&nbsp;&nbsp;&nbsp;</button>
      </div>
 </form>
 

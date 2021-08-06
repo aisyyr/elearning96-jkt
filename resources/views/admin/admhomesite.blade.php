@@ -22,10 +22,10 @@
                     </div>
                @endif
 
-               <div class="mt-4 card-deck">
+               <div class="mt-1 card-deck">
 
                @foreach($file_informasi as $key => $file_informasi)
-               <div class="col-md-4 mt-4">
+               <div class="col-md-4 mt-2">
                     <div class="card" style="width: 18rem;">
                          <img src="{{asset('admin/img/book.png')}}" class="card-img-top" alt="...">
                          <div class="card-body">

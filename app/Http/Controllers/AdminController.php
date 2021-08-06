@@ -6,18 +6,14 @@ use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\File_Informasi;
-// use App\Guru;
 use App\Kelas;
 use App\Kode_Registrasi;
 use App\Pelajaran;
-// use App\Siswa;
 
 class AdminController extends Controller
 {
     public function store(Request $request)
     {
-        // dd($request->all());
-
         $request->validate([
             'file_info' => 'required|unique:file_informasi',
             'keterangan' => 'required',
@@ -33,8 +29,6 @@ class AdminController extends Controller
         ]);
 
         return redirect('/homesite-admin')->with('success', 'File Informasi berhasil diunggah!');
-
-        // return view('admin.admhomesite');
     }
 
     public function index()
@@ -144,8 +138,6 @@ class AdminController extends Controller
 
     public function store2(Request $request)
     {
-        // dd($request->all());
-
         $request->validate([
             'pelajaran_id' => 'required',
             'kelas_id' => 'required|unique:kelas'
@@ -157,8 +149,6 @@ class AdminController extends Controller
         ]);
 
         return redirect('/pelajaran-7')->with('success', 'Mata Pelajaran berhasil ditambahkan!');
-
-        // return view('admin.admhomesite');
     }
 
     public function kelas7()

@@ -58,8 +58,6 @@
                </div>
           </form>
 
-          <br><br>
-
      <a href="/vclasstugas-unggah" class="btn btn-primary btn-icon-split">
           <span class="text">&nbsp;&nbsp;&nbsp;(+) Unggah File Tugas&nbsp;&nbsp;&nbsp;</span>
      </a>

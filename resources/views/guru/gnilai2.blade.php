@@ -59,7 +59,7 @@
                          <br><br>
 
                          <div>
-                              <button type="submit" class="btn btn-primary btn-icon-split">&nbsp;&nbsp;&nbsp;Grading Nilai Tugas Siswa&nbsp;&nbsp;&nbsp;</button>
+                              <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Grading Nilai Tugas Siswa&nbsp;&nbsp;&nbsp;</button>
                          </div>
                     </div>
                </div>

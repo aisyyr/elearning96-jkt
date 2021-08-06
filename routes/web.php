@@ -22,14 +22,15 @@ Route::get('/searched', 'HomeController@sindex');
 Route::post('/homesite-admin', 'AdminController@store');
 Route::get('/homesite-admin', 'AdminController@index');
 
+Route::get('/homesite-upload', 'AdminController@upload');
+
 Route::get('/homesite-admin/{id}/edit', 'AdminController@edit');
 Route::put('/homesite-admin/{id}', 'AdminController@update');
-
 Route::delete('/homesite-admin/{id}', 'AdminController@destroy');
-Route::get('/homesite-upload', 'AdminController@upload');
 
 Route::get('/pengguna-guru', 'AdminController@pengguna1');
 Route::delete('/pengguna-guru/{name}', 'AdminController@destroyguru');
+
 Route::get('/pengguna-siswa', 'AdminController@pengguna2');
 Route::delete('/pengguna-siswa/{name}', 'AdminController@destroysiswa');
 
@@ -41,7 +42,6 @@ Route::get('/tambah-pelajaran', 'AdminController@upload2');
 Route::post('/pelajaran-7', 'AdminController@store2');
 
 Route::get('/pelajaran-7', 'AdminController@kelas7');
-
 Route::get('/pelajaran-8', 'AdminController@kelas8');
 Route::get('/pelajaran-9', 'AdminController@kelas9');
 
@@ -52,10 +52,12 @@ Route::get('/homesite-info/{id}', 'GuruController@open');
 
 Route::get('/virtualclassroom1', 'GuruController@vclass1');
 Route::post('/virtualclassroom1', 'GuruController@storevclass');
+
+Route::get('/virtual-classroom', 'GuruController@vclass2');
+
 Route::get('/virtualclassroom1/{id}/edit', 'GuruController@editvcguru');
 Route::put('/virtualclassroom1/{id}', 'GuruController@updatevguru');
 Route::delete('/virtualclassroom1/{id}', 'GuruController@destroyvguru');
-Route::get('/virtual-classroom', 'GuruController@vclass2');
 
 Route::get('/nilaisiswa', 'GuruController@nilai1');
 Route::get('/nilaisiswa2/{id}/edit', 'GuruController@tugasopen');
@@ -77,10 +79,13 @@ Route::get('/vclass-materi2/{id}', 'SiswaController@open');
 
 Route::get('/vclass-tugas', 'SiswaController@vclasstugas');
 Route::post('/vclass-tugas', 'SiswaController@storetugas');
+
+Route::get('/vclasstugas-unggah', 'SiswaController@vclasstugas2');
+
 Route::get('/vclass-tugas/{id}/edit', 'SiswaController@tugasedit');
 Route::put('/vclass-tugas/{id}', 'SiswaController@tugasupdate');
 Route::delete('/vclass-tugas/{id}', 'SiswaController@tugasdestroy');
-Route::get('/vclasstugas-unggah', 'SiswaController@vclasstugas2');
+
 
 Route::get('/pengaturan-siswa', 'SiswaController@pengaturan');
 Route::get('/pengaturan-siswa/{id}/edit', 'SiswaController@pengaturan2');
