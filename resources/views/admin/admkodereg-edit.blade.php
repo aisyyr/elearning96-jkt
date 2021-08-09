@@ -34,7 +34,7 @@
                     <br>
 
                     <div>
-                         <button type="submit" class="btn btn-primary btn-icon-split">Ubah</button>
+                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                </form>
 

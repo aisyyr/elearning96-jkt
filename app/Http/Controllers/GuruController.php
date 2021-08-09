@@ -164,8 +164,6 @@ class GuruController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'name' => 'required',
-            'penggunaid' => 'required',
             'kode_regist' => 'required'
         ]);
 
@@ -173,11 +171,133 @@ class GuruController extends Controller
                     ->where('id', $id)
                     ->update([
                         'email' => $request['email'],
-                        'name' => $request['name'],
-                        'penggunaid' => $request['penggunaid'],
                         'kode_regist' => $request['kode_regist']
                     ]);
 
         return redirect('/pengaturan-guru')->with('success', 'Pengaturan berhasil disimpan !');
     }
+
+    //searching pelajaran
+    public function bahasaindonesia()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Bahasa Indonesia');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function pendidikanagama()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Pendidikan Agama');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function matematika()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Matematika');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function senibudaya()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Seni Budaya');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function ipa()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Ilmu Pengetahuan Alam');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function pkn()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Pendidikan Kewarganegaraan');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function bahasainggris()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Bahasa Inggris');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function ips()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Ilmu Pengetahuan Sosial');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function prakarya()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Prakarya');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    public function pjok()
+    {
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'PJOK');
+        return view('guru.gvclass1', compact('file_mtguru'));
+    }
+
+    //searching NILAI TUGAS
+    public function bahasaindonesia2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Bahasa Indonesia');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function pendidikanagama2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Pendidikan Agama');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function matematika2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Matematika');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function senibudaya2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Seni Budaya');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function ipa2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Ilmu Pengetahuan Alam');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function pkn2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Pendidikan Kewarganegaraan');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function bahasainggris2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Bahasa Inggris');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function ips2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Ilmu Pengetahuan Sosial');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function prakarya2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Prakarya');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+    public function pjok2()
+    {
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'PJOK');
+        return view('guru.gnilai1', compact('file_tsiswa'));
+    }
+
+
 }

@@ -135,7 +135,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--testimonal end here-->
 
-
 <!--we work strat her-->
 <div class="we-work" id="kontak">
 	<div class="container">
@@ -150,7 +149,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--we work end here-->
-
 
 <!--footer start here-->
 <div class="footer">
@@ -189,8 +187,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--footer end here-->
-
-
 
 <!--copyright start here-->
 <div class="copyright">

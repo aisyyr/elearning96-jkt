@@ -69,27 +69,75 @@ Route::get('/pengaturan-guru', 'GuruController@pengaturan');
 Route::get('/pengaturan-guru/{id}/edit', 'GuruController@pengaturan2');
 Route::put('/pengaturan-guru/{id}', 'GuruController@pengupdate');
 
+//GURU PELAJARAN
+Route::get('/bahasaindonesia', 'GuruController@bahasaindonesia');
+Route::get('/pendidikanagama', 'GuruController@pendidikanagama');
+Route::get('/matematika', 'GuruController@matematika');
+Route::get('/senibudaya', 'GuruController@senibudaya');
+Route::get('/ipa', 'GuruController@ipa');
+Route::get('/pkn', 'GuruController@pkn');
+Route::get('/bahasainggris', 'GuruController@bahasainggris');
+Route::get('/ips', 'GuruController@ips');
+Route::get('/prakarya', 'GuruController@prakarya');
+Route::get('/pjok', 'GuruController@pjok');
+
+//GURU NILAI
+Route::get('/bahasaindonesia2', 'GuruController@bahasaindonesia2');
+Route::get('/pendidikanagama2', 'GuruController@pendidikanagama2');
+Route::get('/matematika2', 'GuruController@matematika2');
+Route::get('/senibudaya2', 'GuruController@senibudaya2');
+Route::get('/ipa2', 'GuruController@ipa2');
+Route::get('/pkn2', 'GuruController@pkn2');
+Route::get('/bahasainggris2', 'GuruController@bahasainggris2');
+Route::get('/ips2', 'GuruController@ips2');
+Route::get('/prakarya2', 'GuruController@prakarya2');
+Route::get('/pjok2', 'GuruController@pjok2');
+
+
 
 //SISWA
 Route::get('/homesite-siswa', 'SiswaController@index');
-Route::get('/virtualclassroom2', 'SiswaController@vclass');
 
 Route::get('/vclass-materi', 'SiswaController@vclassmateri');
 Route::get('/vclass-materi2/{id}', 'SiswaController@open');
 
+Route::get('/vclasstugas-unggah', 'SiswaController@vclasstugas2');
 Route::get('/vclass-tugas', 'SiswaController@vclasstugas');
 Route::post('/vclass-tugas', 'SiswaController@storetugas');
-
-Route::get('/vclasstugas-unggah', 'SiswaController@vclasstugas2');
 
 Route::get('/vclass-tugas/{id}/edit', 'SiswaController@tugasedit');
 Route::put('/vclass-tugas/{id}', 'SiswaController@tugasupdate');
 Route::delete('/vclass-tugas/{id}', 'SiswaController@tugasdestroy');
 
-
 Route::get('/pengaturan-siswa', 'SiswaController@pengaturan');
 Route::get('/pengaturan-siswa/{id}/edit', 'SiswaController@pengaturan2');
 Route::put('/pengaturan-siswa/{id}', 'SiswaController@pengupdate');
+
+// Route::get('/virtualclassroom2', 'SiswaController@vclass');
+
+//SISWA MATERI
+Route::get('/bahasaindonesia', 'SiswaController@bahasaindonesia');
+Route::get('/pendidikanagama', 'SiswaController@pendidikanagama');
+Route::get('/matematika', 'SiswaController@matematika');
+Route::get('/senibudaya', 'SiswaController@senibudaya');
+Route::get('/ipa', 'SiswaController@ipa');
+Route::get('/pkn', 'SiswaController@pkn');
+Route::get('/bahasainggris', 'SiswaController@bahasainggris');
+Route::get('/ips', 'SiswaController@ips');
+Route::get('/prakarya', 'SiswaController@prakarya');
+Route::get('/pjok', 'SiswaController@pjok');
+
+//SISWA TUGAS
+Route::get('/bahasaindonesia2', 'SiswaController@bahasaindonesia2');
+Route::get('/pendidikanagama2', 'SiswaController@pendidikanagama2');
+Route::get('/matematika2', 'SiswaController@matematika2');
+Route::get('/senibudaya2', 'SiswaController@senibudaya2');
+Route::get('/ipa2', 'SiswaController@ipa2');
+Route::get('/pkn2', 'SiswaController@pkn2');
+Route::get('/bahasainggris2', 'SiswaController@bahasainggris2');
+Route::get('/ips2', 'SiswaController@ips2');
+Route::get('/prakarya2', 'SiswaController@prakarya2');
+Route::get('/pjok2', 'SiswaController@pjok2');
 
 
 

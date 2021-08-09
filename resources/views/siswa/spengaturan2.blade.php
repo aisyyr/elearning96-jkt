@@ -21,15 +21,6 @@
 
           <br>
 
-          <label class="label">Nama</label>
-          <input class="input--style-4" type="text" name="name" value="{{ auth()->user()->name }}" >
-
-          <br>
-          <label class="label">NISN Siswa</label>
-          <input class="input--style-4" type="text" name="penggunaid" value="{{ auth()->user()->penggunaid }}" maxlength="10">
-
-          <br>
-
           <label class="label">Kode Registrasi</label>
           <input class="input--style-4" type="text" name="kode_regist" value="{{ auth()->user()->kode_regist }}" maxlength="10">
 
@@ -42,7 +33,7 @@
           </a> -->
 
           <div>
-               <button type="submit" class="btn btn-primary btn-icon-split">&nbsp; &nbsp;Simpan&nbsp; &nbsp;</button>
+               <button type="submit" class="btn btn-primary">&nbsp; &nbsp;Simpan&nbsp; &nbsp;</button>
           </div>
 
      </form>

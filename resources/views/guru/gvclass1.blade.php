@@ -13,46 +13,40 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-700">Virtual Classroom</h1>
 
-          <a href="/virtual-classroom" class="btn btn-primary btn-icon-split">
+          <a href="/virtual-classroom" class="btn btn-success btn-icon-split">
                <span class="text">&nbsp;&nbsp;&nbsp;(+) Unggah File Materi / Tugas&nbsp;&nbsp;&nbsp;</span>
           </a>
+
           <br><br>
 
-          <form method="POST" action="">
-          @csrf
-          @method('GET')
-               <div class="wrapper wrapper--w960 ml-1">
-                    <div class="card card-4">
-                         <div class="card-body">
-                              <label class="label">&nbsp; Pelajaran</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
-                                        @foreach($pelajaran as $pelajaran)
-                                             <option value="{{$pelajaran->id}}">{{$pelajaran->nama_pelajaran}}</option>
-                                        @endforeach
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <label class="label">&nbsp; Kelas</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
-                                        @foreach($kelas as $kelas)
-                                             <option value="{{$kelas->id}}">{{$kelas->kelass}}</option>
-                                        @endforeach
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <br>
-                                   <br>
-                                   <div class="p-t-50 mt-20">
-                                        <button class="btn btn-primary btn-icon-split" type="submit">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</button>
-                                   </div>
-                         </div>
+          <div class="wrapper wrapper--w960 ml-1">
+          <div class="card card-4">
+               <div class="card-body">
+               <h4>Pilih Mata Pelajaran :</h4><br>
+                    <div class="dropdown mb-4">
+                    <button class="btn btn-primary dropdown-toggle btn-md" type="button"
+                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                         aria-expanded="false">
+                         -- mata pelajaran --
+                    </button>
+                    <div class="dropdown-menu animated--fade-in"
+                         aria-labelledby="dropdownMenuButton">
+                         <a class="dropdown-item" href="/virtualclassroom1">Semua Pelajaran</a>
+                         <a class="dropdown-item" href="/bahasaindonesia">Bahasa Indonesia</a>
+                         <a class="dropdown-item" href="/pendidikanagama">Pendidikan Agama</a>
+                         <a class="dropdown-item" href="/matematika">Matematika</a>
+                         <a class="dropdown-item" href="/senibudaya">Seni Budaya</a>
+                         <a class="dropdown-item" href="/ipa">Ilmu Pengetahuan Alam</a>
+                         <a class="dropdown-item" href="/pkn">Pendidikan Kewarganegaraan</a>
+                         <a class="dropdown-item" href="/bahasainggris">Bahasa Inggris</a>
+                         <a class="dropdown-item" href="/ips">Ilmu Pengetahuan Sosial</a>
+                         <a class="dropdown-item" href="/prakarya">Prakarya</a>
+                         <a class="dropdown-item" href="/pjok">PJOK</a>
+                    </div>
                     </div>
                </div>
-          </form>
+          </div>
+          </div>
 
           <br>
 
@@ -67,7 +61,6 @@
           <table class="table table-bordered">
           <thead>
           <tr>
-               <th style="width: 10px">No.</th>
                <th>Judul Materi / Tugas</th>
                <th>Keterangan</th>
                <th>Pelajaran</th>
@@ -79,7 +72,6 @@
           <tbody>
           @foreach($file_mtguru as $key => $file_mtguru)
                <tr>
-                    <td>{{ $key + 1 }}</td>
                     <td>{{ $file_mtguru->file_guru }}</td>
                     <td>{{ $file_mtguru->keterangan }}</td>
                     <td>{{ $file_mtguru->pelajaran }}</td>

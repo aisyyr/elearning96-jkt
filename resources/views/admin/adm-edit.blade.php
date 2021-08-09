@@ -37,7 +37,7 @@
                     <br>
                     <br>
 
-                    <iframe src="{{ asset('storage/file_informasi/dqObRWRB07YWO8EQWwbFiMui87OmhWTx5H8JvnSV.pdf') }}" frameborder="2"  width="900" height="400"></iframe>
+                    <iframe src="{{ asset('storage/file_informasi/x8aA48Z6G6N2gfrSd8eOtrkLFo2ZrNgQt0V4llkn.pdf') }}" frameborder="2"  width="900" height="400"></iframe>
                     <br><br>
                     <input type="file" href="" name="file_doc" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
 

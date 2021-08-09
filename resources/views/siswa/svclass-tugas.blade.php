@@ -10,59 +10,53 @@
      <div class="container-fluid">
 
      <!-- Page Heading -->
-     <h1 class="h3 mb-4 text-gray-700">Virtual Classroom - Tugas NamaPelajaran</h1>
+     <h1 class="h3 mb-4 text-gray-700">Virtual Classroom - Tugas</h1>
 
      <a href="/vclass-materi" class="btn btn-primary btn-icon-split">
-     <span class="text">&nbsp;&nbsp;&nbsp;Materi&nbsp;&nbsp;&nbsp;</span>
+     <span class="text">&nbsp;&nbsp;&nbsp;Materi / Tugas Guru&nbsp;&nbsp;&nbsp;</span>
      </a>
      <a href="/vclass-tugas" class="btn btn-primary btn-icon-split">
-     <span class="text">&nbsp;&nbsp;&nbsp;Tugas&nbsp;&nbsp;&nbsp;&nbsp;</span>
-     </a>
-
-     <br>
-     <br>
-
-     <form method="POST" action="">
-          @csrf
-          @method('GET')
-               <div class="wrapper wrapper--w960 ml-1">
-                    <div class="card card-4">
-                         <div class="card-body">
-                              <label class="label">&nbsp; Pelajaran</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Pelajaran --</option>
-                                        @foreach($pelajaran as $pelajaran)
-                                             <option value="{{$pelajaran->id}}">{{$pelajaran->nama_pelajaran}}</option>
-                                        @endforeach
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <label class="label">&nbsp; Kelas</label>
-                                   <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                        <option disabled="disabled" selected="selected">-- Pilih Kelas --</option>
-                                        @foreach($kelas as $kelas)
-                                             <option value="{{$kelas->id}}">{{$kelas->kelass}}</option>
-                                        @endforeach
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                   </div>
-                                   <br>
-                                   <br>
-                                   <div class="p-t-50 mt-20">
-                                        <button class="btn btn-primary btn-icon-split" type="submit">&nbsp;&nbsp;&nbsp;Pilih&nbsp;&nbsp;&nbsp;</button>
-                                   </div>
-                         </div>
-                    </div>
-               </div>
-          </form>
-
-     <a href="/vclasstugas-unggah" class="btn btn-primary btn-icon-split">
-          <span class="text">&nbsp;&nbsp;&nbsp;(+) Unggah File Tugas&nbsp;&nbsp;&nbsp;</span>
+     <span class="text">&nbsp;&nbsp;&nbsp;Pengumpulan Tugas&nbsp;&nbsp;&nbsp;&nbsp;</span>
      </a>
 
      <br><br>
+
+     <a href="/vclasstugas-unggah" class="btn btn-success btn-icon-split">
+          <span class="text">&nbsp;&nbsp;(+) Unggah File Tugas&nbsp;&nbsp;</span>
+     </a>
+
+     <br><br>
+
+     <div class="wrapper wrapper--w960 ml-1">
+          <div class="card card-4">
+               <div class="card-body">
+               <h4>Pilih Mata Pelajaran :</h4><br>
+                    <div class="dropdown mb-4">
+                    <button class="btn btn-primary dropdown-toggle btn-md" type="button"
+                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                         aria-expanded="false">
+                         -- mata pelajaran --
+                    </button>
+                    <div class="dropdown-menu animated--fade-in"
+                         aria-labelledby="dropdownMenuButton">
+                         <a class="dropdown-item" href="/vclass-tugas">Semua Pelajaran</a>
+                         <a class="dropdown-item" href="/bahasaindonesia2">Bahasa Indonesia</a>
+                         <a class="dropdown-item" href="/pendidikanagama2">Pendidikan Agama</a>
+                         <a class="dropdown-item" href="/matematika2">Matematika</a>
+                         <a class="dropdown-item" href="/senibudaya2">Seni Budaya</a>
+                         <a class="dropdown-item" href="/ipa2">Ilmu Pengetahuan Alam</a>
+                         <a class="dropdown-item" href="/pkn2">Pendidikan Kewarganegaraan</a>
+                         <a class="dropdown-item" href="/bahasainggris2">Bahasa Inggris</a>
+                         <a class="dropdown-item" href="/ips2">Ilmu Pengetahuan Sosial</a>
+                         <a class="dropdown-item" href="/prakarya2">Prakarya</a>
+                         <a class="dropdown-item" href="/pjok2">PJOK</a>
+                    </div>
+                    </div>
+               </div>
+          </div>
+          </div>
+
+          <br>
 
      @if(session('success'))
           <div class="alert alert-success">
@@ -73,7 +67,6 @@
      <table class="table table-bordered">
      <thead>
      <tr>
-          <th style="width: 10px">No.</th>
           <th>Judul Tugas</th>
           <th>Pelajaran</th>
           <th>Kelas</th>
@@ -86,7 +79,6 @@
      <tbody>
      @foreach($file_tsiswa as $key => $file_tsiswa)
           <tr>
-               <td>{{ $key + 1 }}</td>
                <td>{{ $file_tsiswa->file_tugas }}</td>
                <td>{{ $file_tsiswa->pelajaran }}</td>
                <td>{{ $file_tsiswa->kelass }}</td>
