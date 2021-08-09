@@ -12,12 +12,16 @@
           <div class="wrapper wrapper--w960 ml-1">
                <div class="card card-4">
                     <div class="card-body">
-                         <h4>Judul Tugas</h4>
+                         <h4>Judul</h4>
                          <h6 class="label" name="file_guru">{{ old('file_guru', $file_mtguru->file_guru)}}</h6>
                          <br>
 
                          <h4>Keterangan</h4>
                          <h6 class="label" name="keterangan">{{ old('keterangan', $file_mtguru->keterangan)}}</h6>
+                         <br>
+
+                         <h4>Jenis</h4>
+                         <h6 class="label" name="jenis">{{ old('jenis', $file_mtguru->jenis)}}</h6>
                          <br>
 
                          <h4>Tanggal Unggah</h4>

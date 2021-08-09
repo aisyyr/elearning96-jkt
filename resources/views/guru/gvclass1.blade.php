@@ -64,6 +64,7 @@
                <th>Judul Materi / Tugas</th>
                <th>Keterangan</th>
                <th>Pelajaran</th>
+               <th>Jenis</th>
                <th>Kelas</th>
                <th>Tanggal Unggah</th>
                <th style="width: 40px">Pengaturan</th>
@@ -75,6 +76,7 @@
                     <td>{{ $file_mtguru->file_guru }}</td>
                     <td>{{ $file_mtguru->keterangan }}</td>
                     <td>{{ $file_mtguru->pelajaran }}</td>
+                    <td>{{ $file_mtguru->jenis }}</td>
                     <td>{{ $file_mtguru->kelass }}</td>
                     <td>{{ $file_mtguru->tanggal_unggah }}</td>
                     <td style="display:flex;">

@@ -36,6 +36,18 @@
      <div class="wrapper wrapper--w960 ml-1">
           <div class="card card-4">
                <div class="card-body">
+                    <label class="label">&nbsp; Nama</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="nama_guru">
+                         <option disabled="disabled" selected="selected">-- Nama Guru --</option>
+                              <option name="nama_guru" value="{{Auth::user()->name}}">{{ Auth::user()->name }}</option>
+                         </select>
+                         <div class="select-dropdown"></div>
+                         @error('nama_guru')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
+                    </div>
+
                     <label class="label">&nbsp; Pelajaran</label>
                     <div class="rs-select2 js-select-simple select--no-search">
                          <select name="pelajaran">
@@ -45,6 +57,9 @@
                          @endforeach
                          </select>
                          <div class="select-dropdown"></div>
+                         @error('nama_pelajaran')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
                     </div>
 
                     <label class="label">&nbsp; Kelas</label>
@@ -56,6 +71,22 @@
                          @endforeach
                          </select>
                          <div class="select-dropdown"></div>
+                         @error('kelass')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
+                    </div>
+
+                    <label class="label">&nbsp; Jenis File</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="jenis">
+                         <option disabled="disabled" selected="selected">-- Pilih Jenis File --</option>
+                              <option name="jenis" value="materi">Materi</option>
+                              <option name="jenis" value="tugas">Tugas</option>
+                         </select>
+                         <div class="select-dropdown"></div>
+                         @error('jenis')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
                     </div>
                </div>
           </div>

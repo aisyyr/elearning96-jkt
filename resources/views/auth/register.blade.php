@@ -73,7 +73,7 @@
                             <label for="kode_regist" class="label">{{ __('Kode Registrasi') }}</label>
 
                             <div class="col-md-6">
-                                <input id="kode_regist" type="text" class="input--style-4 form-control @error('kode_regist') is-invalid @enderror" name="kode_regist" 
+                                <input id="kode_regist" type="text" id="check" class="input--style-4 form-control @error('kode_regist') is-invalid @enderror" name="kode_regist" 
                                 value="{{ old('kode_regist') }}" required autocomplete="kode_regist" maxlength="10">
 
                                 @error('kode_regist')
@@ -121,15 +121,27 @@
                             });
                         </script> -->
 
-
-
                         <div class="form-group row mb-0">
                             <div class="p-t-30">
-                                <button type="submit" class="btn btn--radius-2 btn--blue">
+                                <button type="submit" class="btn btn--radius-2 btn--blue btn-block">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
+
+                        <!-- <script>
+                        $(function() {
+                        $('input[type="submit"]').prop('disabled', true);
+                        $('#check').on('input', function(e) {
+                            if(this.value.length === 6) {
+                                $('input[type="submit"]').prop('disabled', false);
+                            } else {
+                                $('input[type="submit"]').prop('disabled', true);
+                            }
+                            });
+                        });
+                        </script> -->
+
                     </form>
                 </div>
         </div>

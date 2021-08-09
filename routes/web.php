@@ -116,28 +116,28 @@ Route::put('/pengaturan-siswa/{id}', 'SiswaController@pengupdate');
 // Route::get('/virtualclassroom2', 'SiswaController@vclass');
 
 //SISWA MATERI
-Route::get('/bahasaindonesia', 'SiswaController@bahasaindonesia');
-Route::get('/pendidikanagama', 'SiswaController@pendidikanagama');
-Route::get('/matematika', 'SiswaController@matematika');
-Route::get('/senibudaya', 'SiswaController@senibudaya');
-Route::get('/ipa', 'SiswaController@ipa');
-Route::get('/pkn', 'SiswaController@pkn');
-Route::get('/bahasainggris', 'SiswaController@bahasainggris');
-Route::get('/ips', 'SiswaController@ips');
-Route::get('/prakarya', 'SiswaController@prakarya');
-Route::get('/pjok', 'SiswaController@pjok');
+Route::get('/bahasaindonesia1', 'SiswaController@bahasaindonesia');
+Route::get('/pendidikanagama1', 'SiswaController@pendidikanagama');
+Route::get('/matematika1', 'SiswaController@matematika');
+Route::get('/senibudaya1', 'SiswaController@senibudaya');
+Route::get('/ipa1', 'SiswaController@ipa');
+Route::get('/pkn1', 'SiswaController@pkn');
+Route::get('/bahasainggris1', 'SiswaController@bahasainggris');
+Route::get('/ips1', 'SiswaController@ips');
+Route::get('/prakarya1', 'SiswaController@prakarya');
+Route::get('/pjok1', 'SiswaController@pjok');
 
 //SISWA TUGAS
-Route::get('/bahasaindonesia2', 'SiswaController@bahasaindonesia2');
-Route::get('/pendidikanagama2', 'SiswaController@pendidikanagama2');
-Route::get('/matematika2', 'SiswaController@matematika2');
-Route::get('/senibudaya2', 'SiswaController@senibudaya2');
-Route::get('/ipa2', 'SiswaController@ipa2');
-Route::get('/pkn2', 'SiswaController@pkn2');
-Route::get('/bahasainggris2', 'SiswaController@bahasainggris2');
-Route::get('/ips2', 'SiswaController@ips2');
-Route::get('/prakarya2', 'SiswaController@prakarya2');
-Route::get('/pjok2', 'SiswaController@pjok2');
+Route::get('/bahasaindonesia3', 'SiswaController@bahasaindonesia2');
+Route::get('/pendidikanagama3', 'SiswaController@pendidikanagama2');
+Route::get('/matematika3', 'SiswaController@matematika2');
+Route::get('/senibudaya3', 'SiswaController@senibudaya2');
+Route::get('/ipa3', 'SiswaController@ipa2');
+Route::get('/pkn3', 'SiswaController@pkn2');
+Route::get('/bahasainggris3', 'SiswaController@bahasainggris2');
+Route::get('/ips3', 'SiswaController@ips2');
+Route::get('/prakarya3', 'SiswaController@prakarya2');
+Route::get('/pjok3', 'SiswaController@pjok2');
 
 
 

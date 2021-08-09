@@ -56,6 +56,7 @@
           <table class="table table-bordered">
           <thead>
           <tr>
+               <th>Nama Siswa</th>
                <th>Judul Tugas</th>
                <th>Pelajaran</th>
                <th>Kelas</th>
@@ -68,6 +69,7 @@
           <tbody>
           @foreach($file_tsiswa as $key => $file_tsiswa)
                <tr>
+                    <td>{{ $file_tsiswa->nama_siswa}}</td>
                     <td>{{ $file_tsiswa->file_tugas }}</td>
                     <td>{{ $file_tsiswa->pelajaran }}</td>
                     <td>{{ $file_tsiswa->kelass }}</td>

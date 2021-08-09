@@ -25,6 +25,12 @@
           <div class="alert alert-danger">{{ $message }}</div>
      @enderror
 
+     <!-- <label class="label" for="nama_siswa">Nama Siswa</label>
+     <input class="input--style-4" type="text" name="nama_siswa" value="{{ old('nama_siswa'), '' }}">
+     @error('nama_siswa')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror -->
+
      <label class="label" for="tanggal_unggah">Tanggal Unggah</label>
      <input class="input--style-4" type="date" name="tanggal_unggah" value="{{ old('tanggal_unggah'), '' }}">
      @error('tanggal_unggah')
@@ -35,6 +41,18 @@
      <div class="wrapper wrapper--w960 ml-1">
           <div class="card card-4">
                <div class="card-body">
+                    <label class="label">&nbsp; Nama</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="nama_siswa">
+                         <option disabled="disabled" selected="selected">-- Nama Siswa --</option>
+                              <option name="nama_siswa" value="{{Auth::user()->name}}">{{ Auth::user()->name }}</option>
+                         </select>
+                         <div class="select-dropdown"></div>
+                         @error('nama_siswa')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
+                    </div>
+                    
                     <label class="label">&nbsp; Pelajaran</label>
                     <div class="rs-select2 js-select-simple select--no-search">
                          <select name="pelajaran">
@@ -44,6 +62,9 @@
                          @endforeach
                          </select>
                          <div class="select-dropdown"></div>
+                         @error('nama_pelajaran')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
                     </div>
 
                     <label class="label">&nbsp; Kelas</label>
@@ -55,7 +76,11 @@
                          @endforeach
                          </select>
                          <div class="select-dropdown"></div>
+                         @error('kelass')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
                     </div>
+
                </div>
          </div>
      </div>

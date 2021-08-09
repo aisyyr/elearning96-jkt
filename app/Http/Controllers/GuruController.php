@@ -40,7 +40,9 @@ class GuruController extends Controller
         $request->validate([
             'file_guru' => 'required|unique:file_mtguru',
             'keterangan' => 'required',
+            'jenis' => 'required',
             'pelajaran' => 'required',
+            'nama_guru' => 'required',
             'kelass' => 'required',
             'tanggal_unggah' => 'required'
         ]);
@@ -48,7 +50,9 @@ class GuruController extends Controller
         $query = DB::table('file_mtguru')->insert([
             "file_guru" => $request["file_guru"],
             "keterangan" => $request["keterangan"],
+            "jenis" => $request["jenis"],
             "pelajaran" => $request["pelajaran"],
+            "nama_guru" => $request["nama_guru"],
             "kelass" => $request["kelass"],
             "tanggal_unggah" => $request["tanggal_unggah"]
         ]);
@@ -69,7 +73,11 @@ class GuruController extends Controller
     {
         $request->validate([
             'file_guru' => 'required',
-            'keterangan' => 'required'
+            'keterangan' => 'required',
+            'nama_guru' => 'required',
+            'kelass' => 'required',
+            'pelajaran' => 'required',
+            'jenis' => 'required'
         ]);
 
         $query = DB::table('file_mtguru')
@@ -77,7 +85,9 @@ class GuruController extends Controller
                     ->update([
                         "file_guru" => $request["file_guru"],
                         "keterangan" => $request["keterangan"],
+                        "jenis" => $request["jenis"],
                         "pelajaran" => $request["pelajaran"],
+                        "nama_guru" => $request["nama_guru"],
                         "kelass" => $request["kelass"],
                         "tanggal_unggah" => $request["tanggal_unggah"]
                     ]);

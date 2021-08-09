@@ -21,6 +21,19 @@
 
           <br><br>
 
+          <!-- <button type="button" id="Btn3" onclick="myFunction()">Klik2</button>
+          <button type="button" id="Btn">Klik</button>
+          <button type="button" id="Btn2">Klik</button>
+          <script>
+          function myFunction() {
+          var y = document.getElementById("Btn2");
+          y.disabled = true;
+          var x = document.getElementById("Btn");
+          x.disabled = true;
+          }
+          </script>
+          <br><br> -->
+
           <div class="wrapper wrapper--w960 ml-1">
           <div class="card card-4">
                <div class="card-body">
@@ -34,16 +47,16 @@
                     <div class="dropdown-menu animated--fade-in"
                          aria-labelledby="dropdownMenuButton">
                          <a class="dropdown-item" href="/vclass-materi">Semua Pelajaran</a>
-                         <a class="dropdown-item" href="/bahasaindonesia">Bahasa Indonesia</a>
-                         <a class="dropdown-item" href="/pendidikanagama">Pendidikan Agama</a>
-                         <a class="dropdown-item" href="/matematika">Matematika</a>
-                         <a class="dropdown-item" href="/senibudaya">Seni Budaya</a>
-                         <a class="dropdown-item" href="/ipa">Ilmu Pengetahuan Alam</a>
-                         <a class="dropdown-item" href="/pkn">Pendidikan Kewarganegaraan</a>
-                         <a class="dropdown-item" href="/bahasainggris">Bahasa Inggris</a>
-                         <a class="dropdown-item" href="/ips">Ilmu Pengetahuan Sosial</a>
-                         <a class="dropdown-item" href="/prakarya">Prakarya</a>
-                         <a class="dropdown-item" href="/pjok">PJOK</a>
+                         <a class="dropdown-item" href="/bahasaindonesia1">Bahasa Indonesia</a>
+                         <a class="dropdown-item" href="/pendidikanagama1">Pendidikan Agama</a>
+                         <a class="dropdown-item" href="/matematika1">Matematika</a>
+                         <a class="dropdown-item" href="/senibudaya1">Seni Budaya</a>
+                         <a class="dropdown-item" href="/ipa1">Ilmu Pengetahuan Alam</a>
+                         <a class="dropdown-item" href="/pkn1">Pendidikan Kewarganegaraan</a>
+                         <a class="dropdown-item" href="/bahasainggris1">Bahasa Inggris</a>
+                         <a class="dropdown-item" href="/ips1">Ilmu Pengetahuan Sosial</a>
+                         <a class="dropdown-item" href="/prakarya1">Prakarya</a>
+                         <a class="dropdown-item" href="/pjok1">PJOK</a>
                     </div>
                     </div>
                </div>
@@ -55,14 +68,25 @@
                @foreach($file_mtguru as $key => $file_mtguru)
                <div class="col-md-4 mt-4">
                     <div class="card" style="width: 18rem; ">
-                         <img src="{{asset('admin/img/book.png')}}" class="card-img-top" alt="...">
+                         <?php if(($file_mtguru->jenis) === 'materi') {
+                              ?><img src="{{asset('admin/img/book.png')}}" class="card-img-top" alt="..."><?php ;
+                         } else {
+                              ?><img src="{{asset('admin/img/open-book.png')}}" class="card-img-top" alt="..."><?php ;
+                         }
+                         ?>
                          <div class="card-body">
-                              <h5 class="card-title">{{ $file_mtguru->file_guru }}</h5>
+                              <h5 class="card-title">{{ $file_mtguru->file_guru }} ( {{ $file_mtguru->nama_guru }} )</h5>
+                              <h6 class="card-title"><b>{{ $file_mtguru->jenis }}</b></h6>
                               <h6 class="card-title">Pelajaran : {{ $file_mtguru->pelajaran }}</h6>
                               <h6 class="card-title">Kelas : {{ $file_mtguru->kelass }}</h6>
-                              <p class="card-text">{{ $file_mtguru->keterangan }}</p>
                               <div style="display: flex;">
-                              <a href="/vclass-materi2/{{$file_mtguru->id}}" class="btn btn-primary">Lihat File Materi/Tugas</a>
+                              <a href="/vclass-materi2/{{$file_mtguru->id}}" class="btn btn-primary">
+                              <?php if(($file_mtguru->jenis) === 'materi') {
+                                   echo "Lihat File Materi";
+                              } else {
+                                   echo "Lihat File Tugas";
+                              } ?>
+                              </a>
                               </div>
                          </div>
                     </div>

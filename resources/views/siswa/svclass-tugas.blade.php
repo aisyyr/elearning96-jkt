@@ -40,16 +40,16 @@
                     <div class="dropdown-menu animated--fade-in"
                          aria-labelledby="dropdownMenuButton">
                          <a class="dropdown-item" href="/vclass-tugas">Semua Pelajaran</a>
-                         <a class="dropdown-item" href="/bahasaindonesia2">Bahasa Indonesia</a>
-                         <a class="dropdown-item" href="/pendidikanagama2">Pendidikan Agama</a>
-                         <a class="dropdown-item" href="/matematika2">Matematika</a>
-                         <a class="dropdown-item" href="/senibudaya2">Seni Budaya</a>
-                         <a class="dropdown-item" href="/ipa2">Ilmu Pengetahuan Alam</a>
-                         <a class="dropdown-item" href="/pkn2">Pendidikan Kewarganegaraan</a>
-                         <a class="dropdown-item" href="/bahasainggris2">Bahasa Inggris</a>
-                         <a class="dropdown-item" href="/ips2">Ilmu Pengetahuan Sosial</a>
-                         <a class="dropdown-item" href="/prakarya2">Prakarya</a>
-                         <a class="dropdown-item" href="/pjok2">PJOK</a>
+                         <a class="dropdown-item" href="/bahasaindonesia3">Bahasa Indonesia</a>
+                         <a class="dropdown-item" href="/pendidikanagama3">Pendidikan Agama</a>
+                         <a class="dropdown-item" href="/matematika3">Matematika</a>
+                         <a class="dropdown-item" href="/senibudaya3">Seni Budaya</a>
+                         <a class="dropdown-item" href="/ipa3">Ilmu Pengetahuan Alam</a>
+                         <a class="dropdown-item" href="/pkn3">Pendidikan Kewarganegaraan</a>
+                         <a class="dropdown-item" href="/bahasainggris3">Bahasa Inggris</a>
+                         <a class="dropdown-item" href="/ips3">Ilmu Pengetahuan Sosial</a>
+                         <a class="dropdown-item" href="/prakarya3">Prakarya</a>
+                         <a class="dropdown-item" href="/pjok3">PJOK</a>
                     </div>
                     </div>
                </div>
@@ -67,6 +67,7 @@
      <table class="table table-bordered">
      <thead>
      <tr>
+          <th>Nama Siswa</th>
           <th>Judul Tugas</th>
           <th>Pelajaran</th>
           <th>Kelas</th>
@@ -79,17 +80,23 @@
      <tbody>
      @foreach($file_tsiswa as $key => $file_tsiswa)
           <tr>
+               <td>{{ $file_tsiswa->nama_siswa }}</td>
                <td>{{ $file_tsiswa->file_tugas }}</td>
                <td>{{ $file_tsiswa->pelajaran }}</td>
                <td>{{ $file_tsiswa->kelass }}</td>
                <td>{{ $file_tsiswa->tanggal_unggah}}</td>
-               <td style="display:flex;">
-                    <a href="/vclass-tugas/{{$file_tsiswa->id}}/edit" class="btn btn-primary">Ubah</a>&nbsp;
+               <td style="display:flex;"><?php
+               if(!empty($file_tsiswa->nilaitugas) && !empty($file_tsiswa->komentar)) {
+                    echo '<a href="" class="btn btn-primary disabled">Ubah</a>&nbsp;
+                         <a href="" class="btn btn-danger disabled">Hapus</a>&nbsp;';
+               } else {
+                    ?><a href="/vclass-tugas/{{$file_tsiswa->id}}/edit" class="btn btn-primary">Ubah</a>&nbsp;
                     <form action="/vclass-tugas/{{$file_tsiswa->id}}" method="post">
                          @csrf
                          @method('DELETE')
                          <input type="submit" value="Hapus" class="btn btn-danger">
                     </form>
+               <?php } ?>
                </td>
                <td>{{ $file_tsiswa->nilaitugas }}</td>
                <td>{{ $file_tsiswa->komentar }}</td>
