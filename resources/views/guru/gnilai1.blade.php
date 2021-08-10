@@ -68,6 +68,10 @@
           </thead>
           <tbody>
           @foreach($file_tsiswa as $key => $file_tsiswa)
+          <?php 
+               if((($file_tsiswa->pelajaran) !== Auth::user()->matapelajaran)) {
+                    echo ' ';
+               } else { ?>
                <tr>
                     <td>{{ $file_tsiswa->nama_siswa}}</td>
                     <td>{{ $file_tsiswa->file_tugas }}</td>
@@ -80,6 +84,7 @@
                     <td>{{ $file_tsiswa->nilaitugas }}</td>
                     <td>{{ $file_tsiswa->komentar }}</td>
                </tr>
+               <?php ; } ?>
 
           @endforeach
           </tbody>

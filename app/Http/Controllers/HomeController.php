@@ -26,11 +26,44 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        // $user = DB::table('users')->get();
         return view('dashboard1');
+        // $user = DB::table('users')->get();
     }
+
+    // public function index()
+    // {
+    //     $pelajaran = \App\Pelajaran::all();
+    //     $kelas = \App\Kelas::all();
+        
+    //     return view('dashboard1', ['pelajaran' => $pelajaran, 'kelas' => $kelas]);
+    //     // $user = DB::table('users')->get();
+    // }
+
+    // public function dash($id)
+    // {
+    //     $pelajaran = \App\Pelajaran::all();
+        
+    //     $users = DB::table('users')->get();
+    //     return view('dashboard1', compact('users'), ['pelajaran' => $pelajaran]);
+    // }
+
+    // public function storedash($id, Request $request)
+    // {
+    //     $request->validate([
+    //         'matapelajaran' => 'required'
+    //     ]);
+
+    //     $query = DB::table('users')
+    //                 ->where('id', $id)
+    //                 ->update([
+    //                     "matapelajaran" => $request["matapelajaran"]
+    //                 ]);
+
+    //     return redirect('/dashboard')->with('success', 'Mata Pelajaran berhasil ditambahkan!');
+    // }
 
     // public function sindex(Request $request)
     // {

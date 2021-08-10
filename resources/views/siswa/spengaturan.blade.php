@@ -31,6 +31,10 @@
           <input class="input--style-4" type="text" name="name" value="{{ auth()->user()->kode_regist }}" disabled>
           <br>
 
+          <label class="label">Kelas</label>
+          <input class="input--style-4" type="text" name="kelass" value="{{ auth()->user()->kelass }}" disabled>
+          <br>
+
           <!-- <label class="label">Kode Registrasi</label>
           <input class="input--style-4" type="text" name="kode_regist" maxlength="10">
           <a href="" class="btn btn-primary btn-icon-split">

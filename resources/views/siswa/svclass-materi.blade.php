@@ -66,6 +66,10 @@
           <div class="mt-4 card-deck">
 
                @foreach($file_mtguru as $key => $file_mtguru)
+
+               <?php
+               if(($file_mtguru->kelass) == (auth()->user()->kelass)) { ?>
+
                <div class="col-md-4 mt-4">
                     <div class="card" style="width: 18rem; ">
                          <?php if(($file_mtguru->jenis) === 'materi') {
@@ -91,6 +95,11 @@
                          </div>
                     </div>
                </div>
+
+               <?php ; } else {
+                    echo '';
+               } ?>
+
                @endforeach
 
           </div>

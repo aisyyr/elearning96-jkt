@@ -122,22 +122,26 @@ class SiswaController extends Controller
 
     public function pengaturan2($id)
     {
+        $kelas = \App\Kelas::all();
+
         $user = DB::table('users')->where('id', $id)->first();
-        return view('siswa.spengaturan2', compact('user'));
+        return view('siswa.spengaturan2', compact('user'), ['kelas' => $kelas]);
     }
 
     public function pengupdate($id, Request $request)
     {
         $request->validate([
             'email' => 'required',
-            'kode_regist' => 'required'
+            'kode_regist' => 'required',
+            'kelass' => 'required'
         ]);
 
         $query = DB::table('users')
                     ->where('id', $id)
                     ->update([
                         'email' => $request['email'],
-                        'kode_regist' => $request['kode_regist']
+                        'kode_regist' => $request['kode_regist'],
+                        'kelass' => $request['kelass']
                     ]);
 
         return redirect('/pengaturan-siswa')->with('success', 'Pengaturan berhasil disimpan !');
@@ -171,13 +175,13 @@ class SiswaController extends Controller
 
     public function ipa()
     {
-        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Ilmu Pengetahuan Alam');
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'IPA');
         return view('siswa.svclass-materi', compact('file_mtguru'));
     }
 
     public function pkn()
     {
-        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Pendidikan Kewarganegaraan');
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'PKN');
         return view('siswa.svclass-materi', compact('file_mtguru'));
     }
 
@@ -189,7 +193,7 @@ class SiswaController extends Controller
 
     public function ips()
     {
-        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'Ilmu Pengetahuan Sosial');
+        $file_mtguru = DB::table('file_mtguru')->get()->where('pelajaran', 'IPS');
         return view('siswa.svclass-materi', compact('file_mtguru'));
     }
 
@@ -232,13 +236,13 @@ class SiswaController extends Controller
 
     public function ipa2()
     {
-        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Ilmu Pengetahuan Alam');
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'IPA');
         return view('siswa.svclass-tugas', compact('file_tsiswa'));
     }
 
     public function pkn2()
     {
-        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Pendidikan Kewarganegaraan');
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'PKN');
         return view('siswa.svclass-tugas', compact('file_tsiswa'));
     }
 
@@ -250,7 +254,7 @@ class SiswaController extends Controller
 
     public function ips2()
     {
-        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'Ilmu Pengetahuan Sosial');
+        $file_tsiswa = DB::table('file_tsiswa')->get()->where('pelajaran', 'IPS');
         return view('siswa.svclass-tugas', compact('file_tsiswa'));
     }
 

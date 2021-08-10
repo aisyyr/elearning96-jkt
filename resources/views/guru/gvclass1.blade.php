@@ -56,8 +56,6 @@
                </div>
           @endif
 
-          <br>
-
           <table class="table table-bordered">
           <thead>
           <tr>
@@ -72,6 +70,10 @@
           </thead>
           <tbody>
           @foreach($file_mtguru as $key => $file_mtguru)
+               <?php
+               if((($file_mtguru->nama_guru) !== Auth::user()->name)) {
+                    echo ' ';
+               } else { ?>
                <tr>
                     <td>{{ $file_mtguru->file_guru }}</td>
                     <td>{{ $file_mtguru->keterangan }}</td>
@@ -90,6 +92,7 @@
                          </form>
                     </td>
                </tr>
+               <?php ; } ?>
           @endforeach
           </tbody>
           </table>

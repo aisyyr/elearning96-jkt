@@ -25,7 +25,7 @@
 
 
     @if(auth()->user()->roles == 'guru')
-    <div class="wrapper wrapper--w960 ml-1">
+    <div class="wrapper wrapper--w1000 ml-1">
         <div class="card card-4">
             <div class="card-body">
             <!-- Page Heading -->
@@ -35,7 +35,35 @@
             <hr>
             <br>
             <h4 class="h4 mb-4 text-gray-700">Data Diri Pengajar / Guru</h4>
-            <h4 class="h4 mb-4 text-gray-700">Nama : {{ Auth::user()->name }}</h4>
+
+            <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Nama Pengajar/Guru</th>
+                <th>NIP Guru</th>
+                <th>Hak Akses</th>
+                <th>Pelajaran yang diajar 1</th>
+                <th>Pelajaran yang diajar 2</th>
+                <th>Pelajaran yang diajar 3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ Auth::user()->name }}</td>
+                <td>{{ Auth::user()-> penggunaid }}}</td>
+                <td>{{ Auth::user()->roles }}</td>
+                <?php
+                if(!empty(Auth::user()->matapelajaran)) {
+                    ?><td>{{ Auth::user()->matapelajaran }}</td>
+                <?php ; } else {
+                    ?><td><b>Pilih Mata Pelajaran pada bagian Pengaturan<b></td>
+                <?php ; } ?>
+                <td>pel 2</td>
+                <td>pel 3</td>
+            </tr>
+            </tbody>
+            </table>
+
             <br>
             </div>
         </div>
@@ -54,7 +82,31 @@
             <hr>
             <br>
             <h4 class="h4 mb-4 text-gray-700">Data Diri Siswa</h4>
-            <h4 class="h4 mb-4 text-gray-700">Nama : {{ Auth::user()->name }}</h4>
+
+            <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Nama Siswa</th>
+                <th>NISN Siswa</th>
+                <th>Hak Akses</th>
+                <th>Kelas</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ Auth::user()->name }}</td>
+                <td>{{ Auth::user()-> penggunaid }}}</td>
+                <td>{{ Auth::user()->roles }}</td>
+                <?php
+                if(!empty(Auth::user()->kelass)) {
+                    ?><td>{{ Auth::user()->kelass }}</td>
+                <?php ; } else {
+                    ?><td><b>Pilih Kelas pada bagian Pengaturan<b></td>
+                <?php ; } ?>
+            </tr>
+            </tbody>
+            </table>
+
             </div>
         </div>
     </div>

@@ -30,7 +30,20 @@
           <label class="label">Kode Registrasi</label>
           <input class="input--style-4" type="text" name="name" value="{{ auth()->user()->kode_regist }}" disabled>
 
+          <br><br>
+
+          <label class="label">Mata Pelajaran 1</label>
+          <input class="input--style-4" type="text" name="matapelajaran" value="{{ auth()->user()->matapelajaran }}" disabled>
+
           <br>
+
+          <label class="label">Mata Pelajaran 2</label>
+          <input class="input--style-4" type="text" name="matapelajaran2" value="{{ auth()->user()->matapelajaran }}" disabled>
+
+          <br>
+
+          <label class="label">Mata Pelajaran 3</label>
+          <input class="input--style-4" type="text" name="matapelajaran3" value="{{ auth()->user()->matapelajaran }}" disabled>
 
           <!-- <label class="label">Kode Registrasi</label>
           <input class="input--style-4" type="text" name="kode_regist" maxlength="10">

@@ -79,7 +79,12 @@
      </thead>
      <tbody>
      @foreach($file_tsiswa as $key => $file_tsiswa)
-          <tr>
+          <?php 
+          if(($file_tsiswa->nama_siswa) !== Auth::user()->name ) {
+               echo ' ';
+          } else {
+          ?>
+          <tr> 
                <td>{{ $file_tsiswa->nama_siswa }}</td>
                <td>{{ $file_tsiswa->file_tugas }}</td>
                <td>{{ $file_tsiswa->pelajaran }}</td>
@@ -96,11 +101,12 @@
                          @method('DELETE')
                          <input type="submit" value="Hapus" class="btn btn-danger">
                     </form>
-               <?php } ?>
+               <?php ; } ?>
                </td>
                <td>{{ $file_tsiswa->nilaitugas }}</td>
                <td>{{ $file_tsiswa->komentar }}</td>
           </tr>
+          <?php ; } ?>
      @endforeach
      </tbody>
      </table>

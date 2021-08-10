@@ -62,7 +62,7 @@
                          @endforeach
                          </select>
                          <div class="select-dropdown"></div>
-                         @error('nama_pelajaran')
+                         @error('pelajaran')
                               <div class="alert alert-danger">{{ $message }}</div>
                          @enderror
                     </div>
