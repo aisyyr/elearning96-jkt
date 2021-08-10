@@ -80,8 +80,14 @@
      <br>
      <br>
 
-     <input type="file" href="" name="file_doct" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+     <iframe src="{{ asset('file_tsiswa/'. $file_tsiswa->file_doct) }}" frameborder="2"  width="900" height="400"></iframe>
      <br><br>
+
+     <!-- <input type="file" accept="application/pdf" name="file_doct" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+     @error('file_doct')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror
+     <br><br> -->
 
      <div>
           <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Simpan&nbsp;&nbsp;&nbsp;</button>

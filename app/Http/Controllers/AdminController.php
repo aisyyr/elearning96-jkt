@@ -9,6 +9,7 @@ use App\File_Informasi;
 use App\Kelas;
 use App\Kode_Registrasi;
 use App\Pelajaran;
+use App\Kelas_Pelajaran;
 
 class AdminController extends Controller
 {
@@ -53,7 +54,7 @@ class AdminController extends Controller
 
     public function edit($id)
     {
-        $file_informasi = DB::table('file_informasi')->where('id', $id)->first();
+        $file_informasi = File_Informasi::latest()->where('id', $id)->first();
         return view('admin.adm-edit', compact('file_informasi'));
     }
 
@@ -170,6 +171,7 @@ class AdminController extends Controller
         $kelas = \App\Kelas::all();
 
         $kelas_pelajaran = DB::table('kelas_pelajaran')->where('kelas_id', '<=', 6)->get();
+        // $kelas_pelajaran = Kelas_Pelajaran::withpivot('kelas', 'pelajaran');
         return view('admin.admpelajaran7', compact('kelas_pelajaran'), ['nama_pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 

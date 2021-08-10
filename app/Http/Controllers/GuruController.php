@@ -30,34 +30,51 @@ class GuruController extends Controller
         $pelajaran = \App\Pelajaran::all();
         $kelas = \App\Kelas::all();
         
-        $file_mtguru = DB::table('file_mtguru')->get();
+        $file_mtguru = File_MTGuru::latest()->get();
         return view('guru.gvclass1', compact('file_mtguru'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
         // return view('guru.gvclass1', ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function storevclass(Request $request)
     {
-        $request->validate([
-            'file_guru' => 'required|unique:file_mtguru',
-            'keterangan' => 'required',
-            'jenis' => 'required',
-            'pelajaran' => 'required',
-            'nama_guru' => 'required',
-            'kelass' => 'required',
-            'tanggal_unggah' => 'required'
-        ]);
+        $nm2 = $request->file_docm;
+        $namaFile2 = $nm2->getClientOriginalName();
 
-        $query = DB::table('file_mtguru')->insert([
-            "file_guru" => $request["file_guru"],
-            "keterangan" => $request["keterangan"],
-            "jenis" => $request["jenis"],
-            "pelajaran" => $request["pelajaran"],
-            "nama_guru" => $request["nama_guru"],
-            "kelass" => $request["kelass"],
-            "tanggal_unggah" => $request["tanggal_unggah"]
-        ]);
+        $file_mtguru = new File_MTGuru;
+        $file_mtguru->file_guru = $request->file_guru;
+        $file_mtguru->keterangan = $request->keterangan;
+        $file_mtguru->tanggal_unggah = $request->tanggal_unggah;
+        $file_mtguru->nama_guru = $request->nama_guru;
+        $file_mtguru->jenis = $request->jenis;
+        $file_mtguru->kelass = $request->kelass;
+        $file_mtguru->pelajaran = $request->pelajaran;
+        $file_mtguru->file_docm = $namaFile2;
+
+        $nm2->move(public_path().'/file_mtguru', $namaFile2);
+        $file_mtguru->save();
 
         return redirect('/virtualclassroom1')->with('success', 'File Materi / Tugas berhasil diunggah!');
+
+        // $request->validate([
+        //     'file_guru' => 'required|unique:file_mtguru',
+        //     'keterangan' => 'required',
+        //     'jenis' => 'required',
+        //     'pelajaran' => 'required',
+        //     'nama_guru' => 'required',
+        //     'kelass' => 'required',
+        //     'tanggal_unggah' => 'required'
+        // ]);
+
+        // $query = DB::table('file_mtguru')->insert([
+        //     "file_guru" => $request["file_guru"],
+        //     "keterangan" => $request["keterangan"],
+        //     "jenis" => $request["jenis"],
+        //     "pelajaran" => $request["pelajaran"],
+        //     "nama_guru" => $request["nama_guru"],
+        //     "kelass" => $request["kelass"],
+        //     "tanggal_unggah" => $request["tanggal_unggah"]
+        // ]);
+
     }
 
     public function editvcguru($id)
@@ -167,9 +184,10 @@ class GuruController extends Controller
     public function pengaturan2($id)
     {
         $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
 
         $user = DB::table('users')->where('id', $id)->first();
-        return view('guru.gpengaturan2', compact('user'), ['pelajaran' => $pelajaran]);
+        return view('guru.gpengaturan2', compact('user'), ['pelajaran' => $pelajaran, 'kelas' => $kelas]);
     }
 
     public function pengupdate($id, Request $request)
@@ -177,7 +195,9 @@ class GuruController extends Controller
         $request->validate([
             'email' => 'required',
             'kode_regist' => 'required',
-            'matapelajaran' => 'required'
+            'matapelajaran' => 'required',
+            'matapelajaran2' => 'required',
+            'matapelajaran3' => 'required'
         ]);
 
         $query = DB::table('users')
@@ -185,7 +205,9 @@ class GuruController extends Controller
                     ->update([
                         'email' => $request['email'],
                         'kode_regist' => $request['kode_regist'],
-                        'matapelajaran' => $request['matapelajaran']
+                        'matapelajaran' => $request['matapelajaran'],
+                        'matapelajaran2' => $request['matapelajaran2'],
+                        'matapelajaran3' => $request['matapelajaran3']
                     ]);
 
         return redirect('/pengaturan-guru')->with('success', 'Pengaturan berhasil disimpan !');

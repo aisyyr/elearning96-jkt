@@ -10,7 +10,7 @@
      <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-700">Virtual Classroom - Materi</h1>
+          <h1 class="h3 mb-4 text-gray-700">Virtual Classroom - File Materi / Tugas Guru</h1>
 
           <a href="/vclass-materi" class="btn btn-primary btn-icon-split">
                <span class="text">&nbsp;&nbsp;&nbsp;Materi / Tugas Guru&nbsp;&nbsp;&nbsp;</span>

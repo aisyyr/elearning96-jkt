@@ -20,7 +20,6 @@
                          <img src="{{asset('admin/img/book.png')}}" class="card-img-top" alt="...">
                          <div class="card-body">
                               <h5 class="card-title">{{ $file_informasi->file_info }}</h5>
-                              <h6 class="card-title">{{ $key + 1 }}</h5>
                               <p class="card-text">{{ $file_informasi->keterangan }}</p>
                               <p class="card-text">{{ $file_informasi->tanggal_unggah }}</p>
                               <div style="display: flex;">

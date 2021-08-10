@@ -44,30 +44,49 @@ class SiswaController extends Controller
         $pelajaran = \App\Pelajaran::all();
         $kelas = \App\Kelas::all();
 
-        $file_tsiswa = DB::table('file_tsiswa')->get();
+        $file_tsiswa = File_TSiswa::latest()->get();
         return view('siswa.svclass-tugas', compact('file_tsiswa'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function storetugas(Request $request)
     {
-        $request->validate([
-            'file_tugas' => 'required',
-            'keterangan' => 'required',
-            'nama_siswa' => 'required',
-            'tanggal_unggah' => 'required'
-        ]);
+        $nm3 = $request->file_doct;
+        $namaFile3 = $nm3->getClientOriginalName();
 
-        $query = DB::table('file_tsiswa')->insert([
-            "file_tugas" => $request["file_tugas"],
-            "keterangan" => $request["keterangan"],
-            "nama_siswa" => $request["nama_siswa"],
-            "tanggal_unggah" => $request["tanggal_unggah"],
-            "pelajaran" => $request["pelajaran"],
-            "kelass" => $request["kelass"]
-        ]);
+        $file_tsiswa = new File_TSiswa;
+        $file_tsiswa->file_tugas = $request->file_tugas;
+        $file_tsiswa->keterangan = $request->keterangan;
+        $file_tsiswa->tanggal_unggah = $request->tanggal_unggah;
+        $file_tsiswa->nama_siswa = $request->nama_siswa;
+        $file_tsiswa->kelass = $request->kelass;
+        $file_tsiswa->pelajaran = $request->pelajaran;
+        $file_tsiswa->nilaitugas = $request->nilaitugas;
+        $file_tsiswa->komentar = $request->komentar;
+        $file_tsiswa->file_doct = $namaFile3;
+
+        $nm3->move(public_path().'/file_tsiswa', $namaFile3);
+        $file_tsiswa->save();
 
         return redirect('/vclass-tugas')->with('success', 'File Tugas berhasil diunggah!');
     }
+
+
+        // $request->validate([
+        //     'file_tugas' => 'required',
+        //     'keterangan' => 'required',
+        //     'nama_siswa' => 'required',
+        //     'tanggal_unggah' => 'required'
+        // ]);
+
+        // $query = DB::table('file_tsiswa')->insert([
+        //     "file_tugas" => $request["file_tugas"],
+        //     "keterangan" => $request["keterangan"],
+        //     "nama_siswa" => $request["nama_siswa"],
+        //     "tanggal_unggah" => $request["tanggal_unggah"],
+        //     "pelajaran" => $request["pelajaran"],
+        //     "kelass" => $request["kelass"]
+        // ]);
+
 
     public function tugasedit($id)
     {

@@ -69,7 +69,7 @@
           <tbody>
           @foreach($file_tsiswa as $key => $file_tsiswa)
           <?php 
-               if((($file_tsiswa->pelajaran) !== Auth::user()->matapelajaran)) {
+               if((($file_tsiswa->pelajaran) !== Auth::user()->matapelajaran) && (($file_tsiswa->pelajaran) !== Auth::user()->matapelajaran2) && (($file_tsiswa->pelajaran) !== Auth::user()->matapelajaran3)) {
                     echo ' ';
                } else { ?>
                <tr>

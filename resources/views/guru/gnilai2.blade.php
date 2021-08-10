@@ -35,8 +35,12 @@
                          <h6 class="label" name="kelass">{{ old('kelass', $file_tsiswa->kelass)}}</h6>
                          <br>
 
-                         <label class="label" for="subject">File Tugas Siswa</label>
-                         <iframe src="" frameborder="2"  width="900" height="400"></iframe>
+                         <h4>Nama Siswa</h4>
+                         <h6 class="label" name="kelass">{{ old('nama_siswa', $file_tsiswa->nama_siswa)}}</h6>
+                         <br>
+
+                         <h4>File Tugas Siswa</h4>
+                         <iframe src="{{ asset('file_tsiswa/'. $file_tsiswa->file_doct) }}" frameborder="2"  width="900" height="400"></iframe>
                          <br>
                          <h6 class="label" name="nilaitugas">&nbsp;Nilai : {{ old('nilaitugas', $file_tsiswa->nilaitugas)}}</h6>
                          <h6 class="label" name="komentar">&nbsp;Komentar : {{ old('komentar', $file_tsiswa->komentar)}}</h6>

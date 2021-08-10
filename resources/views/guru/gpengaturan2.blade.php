@@ -29,7 +29,7 @@
 
                     <br><br>
                     
-                    <label class="label">&nbsp; Mata Pelajaran 1 *</label>
+                    <label class="label">&nbsp; Mata Pelajaran yang diajar 1 *</label>
                     <div class="rs-select2 js-select-simple select--no-search">
                          <select name="matapelajaran">
                          <option disabled="disabled" selected="selected">-- Pilih Mata Pelajaran --</option>
@@ -39,6 +39,52 @@
                          </select>
                          <div class="select-dropdown"></div>
                          @error('matapelajaran')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
+                    </div>
+
+                    <br>
+
+                    <label class="label">&nbsp; Mata Pelajaran yang diajar 2</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="matapelajaran2">
+                              <option disabled="disabled" selected="selected">-- Pilih Mata Pelajaran 2 --</option>
+                              <option name="matapelajaran2" value="Bahasa Indonesia">Bahasa Indonesia</option>
+                              <option name="matapelajaran2" value="Pendidikan Agama">Pendidikan Agama</option>
+                              <option name="matapelajaran2" value="Matematika">Matematika</option>
+                              <option name="matapelajaran2" value="Seni Budaya">Seni Budaya</option>
+                              <option name="matapelajaran2" value="IPA">IPA</option>
+                              <option name="matapelajaran2" value="PKN">PKN</option>
+                              <option name="matapelajaran2" value="Bahasa Inggris">Bahasa Inggris</option>
+                              <option name="matapelajaran2" value="IPS">IPS</option>
+                              <option name="matapelajaran2" value="Prakarya">Prakarya</option>
+                              <option name="matapelajaran2" value="PJOK">PJOK</option>
+                         </select>
+                         <div class="select-dropdown"></div>
+                         @error('matapelajaran2')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
+                    </div>
+
+                    <br>
+
+                    <label class="label">&nbsp; Mata Pelajaran yang diajar 3</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                         <select name="matapelajaran3">
+                              <option disabled="disabled" selected="selected">-- Pilih Mata Pelajaran 3 --</option>
+                              <option name="matapelajaran3" value="Bahasa Indonesia">Bahasa Indonesia</option>
+                              <option name="matapelajaran3" value="Pendidikan Agama">Pendidikan Agama</option>
+                              <option name="matapelajaran3" value="Matematika">Matematika</option>
+                              <option name="matapelajaran3" value="Seni Budaya">Seni Budaya</option>
+                              <option name="matapelajaran3" value="IPA">IPA</option>
+                              <option name="matapelajaran3" value="PKN">PKN</option>
+                              <option name="matapelajaran3" value="Bahasa Inggris">Bahasa Inggris</option>
+                              <option name="matapelajaran3" value="IPS">IPS</option>
+                              <option name="matapelajaran3" value="Prakarya">Prakarya</option>
+                              <option name="matapelajaran3" value="PJOK">PJOK</option>
+                         </select>
+                         <div class="select-dropdown"></div>
+                         @error('matapelajaran3')
                               <div class="alert alert-danger">{{ $message }}</div>
                          @enderror
                     </div>

@@ -36,8 +36,12 @@
                          <h6 class="label" name="kelass">{{ old('kelass', $file_mtguru->kelass)}}</h6>
                          <br>
 
+                         <h4>Nama Guru</h4>
+                         <h6 class="label" name="nama_guru">{{ old('nama_guru', $file_mtguru->nama_guru)}}</h6>
+                         <br>
+
                          <h4>File Materi / Tugas</h4>
-                         <iframe src="" frameborder="2"  width="900" height="400"></iframe>
+                         <iframe src="{{ asset('file_mtguru/'. $file_mtguru->file_docm) }}" frameborder="2"  width="900" height="400"></iframe>
                     </div>
                </div>
           </div>

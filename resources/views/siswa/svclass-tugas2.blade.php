@@ -88,7 +88,10 @@
           
      <br>
 
-     <input type="file" href="" name="file_doct" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+     <input type="file" href="" name="file_doct" accept="application/pdf" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+     @error('file_doct')
+          <div class="alert alert-danger">{{ $message }}</div>
+     @enderror
      <br><br>
 
      <div>

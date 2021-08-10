@@ -42,9 +42,9 @@
                 <th>Nama Pengajar/Guru</th>
                 <th>NIP Guru</th>
                 <th>Hak Akses</th>
-                <th>Pelajaran yang diajar 1</th>
-                <th>Pelajaran yang diajar 2</th>
-                <th>Pelajaran yang diajar 3</th>
+                <th width="180px">Pelajaran yang diajar 1 *</th>
+                <th width="180px">Pelajaran yang diajar 2</th>
+                <th width="180px">Pelajaran yang diajar 3</th>
             </tr>
             </thead>
             <tbody>
@@ -52,14 +52,27 @@
                 <td>{{ Auth::user()->name }}</td>
                 <td>{{ Auth::user()-> penggunaid }}}</td>
                 <td>{{ Auth::user()->roles }}</td>
+
                 <?php
                 if(!empty(Auth::user()->matapelajaran)) {
                     ?><td>{{ Auth::user()->matapelajaran }}</td>
                 <?php ; } else {
                     ?><td><b>Pilih Mata Pelajaran pada bagian Pengaturan<b></td>
                 <?php ; } ?>
-                <td>pel 2</td>
-                <td>pel 3</td>
+
+                <?php
+                if(!empty(Auth::user()->matapelajaran2)) {
+                    ?><td>{{ Auth::user()->matapelajaran2 }}</td>
+                <?php ; } else {
+                    ?><td><b>Pilih Mata Pelajaran pada bagian Pengaturan<b></td>
+                <?php ; } ?>
+                
+                <?php
+                if(!empty(Auth::user()->matapelajaran3)) {
+                    ?><td>{{ Auth::user()->matapelajaran3 }}</td>
+                <?php ; } else {
+                    ?><td><b>Pilih Mata Pelajaran pada bagian Pengaturan<b></td>
+                <?php ; } ?>
             </tr>
             </tbody>
             </table>

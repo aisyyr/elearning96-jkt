@@ -35,7 +35,7 @@
                     <br>
                     <br>
                     
-                    <input type="file" name="file_doc" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+                    <input type="file" name="file_doc" accept="application/pdf" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
 
                     <br>
                     <br>
