@@ -34,14 +34,14 @@
                     <br>
                     <br>
                     <br>
-                    <iframe src="{{ asset('storage/file_informasi/dqObRWRB07YWO8EQWwbFiMui87OmhWTx5H8JvnSV.pdf') }}" frameborder="0"  width="900" height="400"></iframe>
-                    <input type="file" href="" name="file_doc" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
+                    
+                    <input type="file" name="file_doc" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
 
                     <br>
                     <br>
 
                     <div>
-                         <button type="submit" class="btn btn-primary btn-icon-split">&nbsp;&nbsp;&nbsp;Unggah File&nbsp;&nbsp;&nbsp;</button>
+                         <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Unggah File&nbsp;&nbsp;&nbsp;</button>
                     </div>
                </form>
 

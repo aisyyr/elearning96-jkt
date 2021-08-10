@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class File_Informasi extends Model
 {
-    protected $table = 'file_fnfromasi';
+    protected $table = 'file_informasi';
     public $timestamps = false;
 
     protected $fillable = [
         'id', 
         'file_info',
+        'file_doc',
         'tanggal_unggah',
         'keterangan', 
         'id_user_admin',

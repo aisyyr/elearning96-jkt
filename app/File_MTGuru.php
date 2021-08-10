@@ -12,7 +12,10 @@ class File_MTGuru extends Model
     protected $fillable = [
         'id', 
         'file_guru',
+        'file_docm',
         'keterangan',
+        'nama_guru',
+        'jenis',
         'kelass',
         'pelajaran',
         'nip_guru',

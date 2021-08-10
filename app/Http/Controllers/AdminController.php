@@ -14,26 +14,39 @@ class AdminController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
-            'file_info' => 'required|unique:file_informasi',
-            'keterangan' => 'required',
-            'tanggal_unggah' => 'required'
-        ]);
+        $nm = $request->file_doc;
+        $namaFile = $nm->getClientOriginalName();
 
-        $query = DB::table('file_informasi')->insert([
-            "file_info" => $request["file_info"],
-            "keterangan" => $request["keterangan"],
-            "tanggal_unggah" => $request["tanggal_unggah"],
-            "informasi" => $request["informasi"],
-            "file_doc" => $request["file_doc"] -> store("file_informasi")
-        ]);
+        $file_informasi = new File_Informasi;
+        $file_informasi->file_info = $request->file_info;
+        $file_informasi->keterangan = $request->keterangan;
+        $file_informasi->tanggal_unggah = $request->tanggal_unggah;
+        $file_informasi->file_doc = $namaFile;
+
+        $nm->move(public_path().'/file_info', $namaFile);
+        $file_informasi->save();
 
         return redirect('/homesite-admin')->with('success', 'File Informasi berhasil diunggah!');
     }
 
+        // $request->validate([
+        //     'file_info' => 'required|unique:file_informasi',
+        //     'keterangan' => 'required',
+        //     'tanggal_unggah' => 'required'
+        // ]);
+
+        // $query = DB::table('file_informasi')->insert([
+        //     "file_info" => $request["file_info"],
+        //     "keterangan" => $request["keterangan"],
+        //     "tanggal_unggah" => $request["tanggal_unggah"],
+        //     "informasi" => $request["informasi"],
+        //     "file_doc" => $request["file_doc"] -> store("file_informasi")
+        // ]);
+
+        
     public function index()
     {
-        $file_informasi = DB::table('file_informasi')->get();
+        $file_informasi = File_Informasi::latest()->get();
 
         return view('admin.admhomesite', compact('file_informasi'));
     }
@@ -59,7 +72,7 @@ class AdminController extends Controller
                         'keterangan' => $request['keterangan'],
                         'tanggal_unggah' => $request['tanggal_unggah'],
                         'informasi' => $request['informasi'],
-                        'file_doc' => $request['file_doc'] -> store('file_informasi')
+                        'file_doc' => $request['file_doc']
                     ]);
 
         return redirect('/homesite-admin')->with('success', 'File Informasi Berhasil di Ubah!');
