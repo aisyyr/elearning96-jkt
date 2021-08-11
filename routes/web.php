@@ -38,6 +38,7 @@ Route::get('/koderegistrasi', 'AdminController@kodereg');
 Route::get('/koderegistrasi/{id}/edit', 'AdminController@edit2');
 Route::put('/koderegistrasi/{id}', 'AdminController@update2');
 
+Route::get('/pelajaran', 'AdminController@pelajaran');
 Route::get('/tambah-pelajaran', 'AdminController@upload2');
 Route::post('/pelajaran-7', 'AdminController@store2');
 

@@ -17,7 +17,7 @@ class Pelajaran extends Model
     //FK id_kelas (MANY TO MANY)
     public function kelas()
     {
-        return $this->belongsToMany(Kelas::class);
+        return $this->belongsToMany('App\Kelas');
     }
 
     // //Relasi fk dari table Guru (MANY TO MANY)

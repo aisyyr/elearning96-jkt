@@ -145,6 +145,14 @@ class AdminController extends Controller
 
 
 
+    public function pelajaran()
+    {
+        $pelajaran = \App\Pelajaran::all();
+        $kelas = \App\Kelas::all();
+        
+        return view('admin.admpelajaran', ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
+    }
+
     public function upload2()
     {
         return view('admin.admpelajaran-upload');
@@ -170,9 +178,14 @@ class AdminController extends Controller
         $pelajaran = \App\Pelajaran::all();
         $kelas = \App\Kelas::all();
 
+        // foreach($kelas->pelajaran as $relasi) {
+        //     $relasi = App\Kelas::all()->get();
+        // }
+
         $kelas_pelajaran = DB::table('kelas_pelajaran')->where('kelas_id', '<=', 6)->get();
-        // $kelas_pelajaran = Kelas_Pelajaran::withpivot('kelas', 'pelajaran');
-        return view('admin.admpelajaran7', compact('kelas_pelajaran'), ['nama_pelajaran' => $pelajaran , 'kelas' => $kelas]);
+        // $kelas = Kelas::with('pelajaran')->get();
+        return view('admin.admpelajaran7', compact('kelas_pelajaran'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
+        // 
     }
 
     public function kelas8()

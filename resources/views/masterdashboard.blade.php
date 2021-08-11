@@ -84,7 +84,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/pelajaran-7">
+                <a class="nav-link" href="/pelajaran">
                     <i class="fas fa-fw fa-book-open"></i>
                     <span>Pelajaran</span></a>
             </li>

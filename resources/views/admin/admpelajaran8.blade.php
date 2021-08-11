@@ -12,20 +12,19 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-700">Pelajaran Kelas 8</h1>
 
+          <a href="/pelajaran" class="btn btn-primary btn-icon-split">
+               <span class="text">&nbsp;Pelajaran&nbsp;</span>
+          </a>
           <a href="/pelajaran-7" class="btn btn-primary btn-icon-split">
                <span class="text">&nbsp;Kelas 7&nbsp;</span>
           </a>
-          <a href="/pelajaran-8" class="btn btn-primary btn-icon-split">
+          <a href="/pelajaran-8" class="btn btn-success btn-icon-split">
                <span class="text">&nbsp;Kelas 8&nbsp;</span>
           </a>
           <a href="/pelajaran-9" class="btn btn-primary btn-icon-split">
                <span class="text">&nbsp;Kelas 9&nbsp;</span>
           </a>
           <br>
-          <br>
-          <a href="/tambah-pelajaran" class="btn btn-primary btn-icon-split">
-               <span class="text">(+) Tambah Mata Pelajaran</span>
-          </a>
 
           <div class="card-body">
                <table class="table table-bordered">
@@ -44,7 +43,6 @@
                     <td>{{ $kelas_pelajaran->pelajaran_id }}</td>
                     <td>{{ $kelas_pelajaran->kelas_id }}</td>
                     <td style="display:flex;">
-                         <a href="" class="btn btn-primary">Ubah</a>&nbsp;
                          <a href="" class="btn btn-danger">Hapus</a>
                     </td>
                </tr>

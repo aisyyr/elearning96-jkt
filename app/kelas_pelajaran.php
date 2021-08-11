@@ -13,4 +13,14 @@ class kelas_pelajaran extends Model
         'kelas_id',
         'pelajaran_id',
     ];
+
+    // public function pelajaran()
+    // {
+    //     return $this->belongsToMany(Pelajaran::class);
+    // }
+
+    // public function kelas()
+    // {
+    //     return $this->belongsToMany(Kelas::class);
+    // }
 }
