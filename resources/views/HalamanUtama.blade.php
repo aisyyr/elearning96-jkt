@@ -128,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="testimonal-main">
 			 <h2>Tata Cara Registrasi Akun</h2>
 			 <h2>E-Learning SMP Negeri 96 Jakarta</h2>
-			 <a href="https://drive.google.com/file/d/0B08TCEBcWP9mc3RhcnRlcl9maWxl/view?usp=sharing" target="_blank" class="hvr-bounce-to-right  testimo-btn">Download</a>
+			 <a href="https://docs.google.com/document/d/1c3HuJv0QmvY3YUDMGoZrWKv5ypot6LCM/edit?usp=sharing&ouid=112520201921924864650&rtpof=true&sd=true" target="_blank" class="hvr-bounce-to-right  testimo-btn">Download</a>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
