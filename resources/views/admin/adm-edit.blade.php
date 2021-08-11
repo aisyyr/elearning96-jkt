@@ -38,9 +38,6 @@
                     <br>
 
                     <iframe src="{{ asset('file_info/'. $file_informasi->file_doc) }}" frameborder="2"  width="900" height="400"></iframe>
-                    <br><br>
-                    <input type="file" href="" name="file_doc" accept="application/pdf" class="btn btn-primary btn-icon-split btn-sm">Unggah File</input>
-
                     <br>
                     <br>
 

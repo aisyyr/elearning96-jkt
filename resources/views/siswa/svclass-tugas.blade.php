@@ -15,13 +15,13 @@
      <a href="/vclass-materi" class="btn btn-primary btn-icon-split">
      <span class="text">&nbsp;&nbsp;&nbsp;Materi / Tugas Guru&nbsp;&nbsp;&nbsp;</span>
      </a>
-     <a href="/vclass-tugas" class="btn btn-primary btn-icon-split">
+     <a href="/vclass-tugas" class="btn btn-success btn-icon-split">
      <span class="text">&nbsp;&nbsp;&nbsp;Pengumpulan Tugas&nbsp;&nbsp;&nbsp;&nbsp;</span>
      </a>
 
      <br><br>
 
-     <a href="/vclasstugas-unggah" class="btn btn-success btn-icon-split">
+     <a href="/vclasstugas-unggah" class="btn btn-warning btn-icon-split">
           <span class="text">&nbsp;&nbsp;(+) Unggah File Tugas&nbsp;&nbsp;</span>
      </a>
 

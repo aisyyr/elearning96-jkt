@@ -26,30 +26,37 @@
           </a>
           <br>
 
-          <div class="card-body">
-               <table class="table table-bordered">
-               <thead>
-               <tr>
-                    <th style="width: 10px">No.</th>
-                    <th>Kode Pelajaran</th>
-                    <th>Id Kelas</th>
-                    <th style="width: 40px">Pengaturan</th>
-               </tr>
-               </thead>
-               <tbody>
-               @foreach($kelas_pelajaran as $key => $kelas_pelajaran) 
-               <tr>
-                    <td>{{ $key + 1 }}</td>
-                    <td>{{ $kelas_pelajaran->pelajaran_id }}</td>
-                    <td>{{ $kelas_pelajaran->kelas_id }}</td>
-                    <td style="display:flex;">
-                         <a href="" class="btn btn-danger">Hapus</a>
-                    </td>
-               </tr>
-               @endforeach
-               </tbody>
-               </table>
-          </div>
+          <br>
+               <!-- <a href="/tambah-pelajaran-pada-kelas" class="btn btn-primary btn-icon-split">
+                    <span class="text">(+) Tambah Mata Pelajaran pada Kelas</span>
+               </a><br> -->
+
+               <div class="wrapper wrapper--w960 ml-1">
+               <div class="card card-4">
+                    <div class="card-body">
+                         <div class="card-body">
+                              <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                   <th style="width: 10px">No.</th>
+                                   <th>ID Pelajaran</th>
+                                   <th>ID Kelas</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              @foreach($kelas_pelajaran as $key => $kelas_pelajaran) 
+                              <tr>
+                                   <td>{{ $key + 1 }}</td>
+                                   <td>{{ $kelas_pelajaran->pelajaran_id }}</td>
+                                   <td>{{ $kelas_pelajaran->kelas_id }}</td>
+                              </tr>
+                              @endforeach
+                              </tbody>
+                              </table>
+                         </div>
+                    </div>
+               </div>
+               </div>
 
      </div>
      <!-- /.container-fluid -->

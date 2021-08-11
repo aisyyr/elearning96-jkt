@@ -29,7 +29,7 @@
         <div class="card card-4">
             <div class="card-body">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-700">Selamat Datang,</h1>
+            <h1 class="h3 mb-4 text-gray-700">Selamat Datang, {{ Auth::user()->name }}</h1>
             <h2 class="h4 mb-4 text-gray-700">Selamat Mengajar dan Tetap Semangat!</h2>
             <br>
             <hr>
@@ -90,7 +90,7 @@
             <div class="card-body">
             <!-- Page Heading -->
             <h1 class="h3 mb-4 text-gray-700">Selamat Datang, Siswa SMP Negeri 96 Jakarta</h1>
-            <h2 class="h4 mb-4 text-gray-700">Selamat Belajar dan Tetap Semangat !</h2>
+            <h2 class="h4 mb-4 text-gray-700">Selamat Belajar dan Tetap Semangat, {{ Auth::user()->name }} !</h2>
             <br>
             <hr>
             <br>

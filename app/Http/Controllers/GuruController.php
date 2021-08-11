@@ -195,9 +195,7 @@ class GuruController extends Controller
         $request->validate([
             'email' => 'required',
             'kode_regist' => 'required',
-            'matapelajaran' => 'required',
-            'matapelajaran2' => 'required',
-            'matapelajaran3' => 'required'
+            'matapelajaran' => 'required'
         ]);
 
         $query = DB::table('users')

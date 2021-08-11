@@ -29,9 +29,6 @@
                <br>
                <a href="/tambah-pelajaran" class="btn btn-primary btn-icon-split">
                     <span class="text">(+) Tambah Mata Pelajaran</span>
-               </a><br><br>
-               <a href="/tambah-pelajaran" class="btn btn-primary btn-icon-split">
-                    <span class="text">(+) Tambah Mata Pelajaran pada Kelas</span>
                </a><br>
                     <div class="card-body">
                          <table class="table table-bordered">

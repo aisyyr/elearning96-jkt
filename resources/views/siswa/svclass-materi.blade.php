@@ -12,7 +12,7 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-700">Virtual Classroom - File Materi / Tugas Guru</h1>
 
-          <a href="/vclass-materi" class="btn btn-primary btn-icon-split">
+          <a href="/vclass-materi" class="btn btn-success btn-icon-split">
                <span class="text">&nbsp;&nbsp;&nbsp;Materi / Tugas Guru&nbsp;&nbsp;&nbsp;</span>
           </a>
           <a href="/vclass-tugas" class="btn btn-primary btn-icon-split">

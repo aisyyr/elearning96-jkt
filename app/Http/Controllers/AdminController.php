@@ -71,9 +71,7 @@ class AdminController extends Controller
                     ->update([
                         'file_info' => $request['file_info'],
                         'keterangan' => $request['keterangan'],
-                        'tanggal_unggah' => $request['tanggal_unggah'],
-                        'informasi' => $request['informasi'],
-                        'file_doc' => $request['file_doc']
+                        'tanggal_unggah' => $request['tanggal_unggah']
                     ]);
 
         return redirect('/homesite-admin')->with('success', 'File Informasi Berhasil di Ubah!');
@@ -149,28 +147,30 @@ class AdminController extends Controller
     {
         $pelajaran = \App\Pelajaran::all();
         $kelas = \App\Kelas::all();
-        
-        return view('admin.admpelajaran', ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
+
+        $pelajaran = DB::table('pelajaran')->get();
+        return view('admin.admpelajaran', compact('pelajaran'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
     }
 
     public function upload2()
     {
-        return view('admin.admpelajaran-upload');
+        $pelajaran = \App\Pelajaran::all();
+
+        return view('admin.admpelajaran-upload', ['pelajaran' => $pelajaran]);
     }
 
     public function store2(Request $request)
     {
         $request->validate([
-            'pelajaran_id' => 'required',
-            'kelas_id' => 'required|unique:kelas'
+            'nama_pelajaran' => 'required'
+            
         ]);
 
-        $query = DB::table('kelas_pelajaran')->insert([
-            "pelajaran_id" => $request["pelajaran_id"],
-            "kelas_id" => $request["kelas_id"]
+        $query = DB::table('pelajaran')->insert([
+            "nama_pelajaran" => $request["nama_pelajaran"]
         ]);
 
-        return redirect('/pelajaran-7')->with('success', 'Mata Pelajaran berhasil ditambahkan!');
+        return redirect('/pelajaran')->with('success', 'Mata Pelajaran berhasil ditambahkan!');
     }
 
     public function kelas7()
@@ -187,6 +187,29 @@ class AdminController extends Controller
         return view('admin.admpelajaran7', compact('kelas_pelajaran'), ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
         // 
     }
+
+    // public function upload3()
+    // {
+    //     $pelajaran = \App\Pelajaran::all();
+    //     $kelas = \App\Kelas::all();
+
+    //     return view('admin.admtambah-mpkelas', ['pelajaran' => $pelajaran , 'kelas' => $kelas]);
+    // }
+
+    // public function store3(Request $request)
+    // {
+    //     $request->validate([
+    //         'kelas_id' => 'required',
+    //         'pelajaran_id' => 'required'
+    //     ]);
+
+    //     $query = DB::table('kelas_pelajaran')->insert([
+    //         "kelas_id" => $request["kelas_id"],
+    //         "pelajaran_id" => $request["pelajaran_id"]
+    //     ]);
+
+    //     return redirect('/pelajaran-7')->with('success', 'Mata Pelajaran pada Kelas berhasil ditambahkan!');
+    // }
 
     public function kelas8()
     {
